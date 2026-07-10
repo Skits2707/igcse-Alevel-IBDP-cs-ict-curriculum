@@ -4,6 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Connor Scanlan — K–12 Computer Science & ICT Curriculum Portfolio</title>
+<meta name="description" content="Complete Computer Science & ICT curriculum suite for international schools. IGCSE, A-Level, IB DP, and ICT programmes with bilingual scaffolding.">
+<meta property="og:title" content="Connor Scanlan — CS & ICT Curriculum Portfolio">
+<meta property="og:description" content="Complete K–12 Computer Science & ICT curriculum suite with bilingual scaffolding for international schools.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://skits2707.github.io/vpa-cs-ict-curriculum/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💻</text></svg>">
 <style>
   :root {
     --primary: #0f4c81;
@@ -34,70 +41,59 @@
   .nav-cta:hover { background: var(--primary-dark); color: white; }
   
   /* Dropdown */
-  .dropdown-menu { display: none; position: absolute; top: 100%; left: 0; background: white; border-radius: 10px; box-shadow: var(--card-hover); min-width: 220px; padding: 8px 0; margin-top: 4px; border: 1px solid var(--border); }
+  .dropdown-menu { display: none; position: absolute; top: 100%; left: 0; background: white; border-radius: 8px; box-shadow: var(--card-hover); min-width: 220px; padding: 8px 0; z-index: 1001; border: 1px solid var(--border); }
+  .dropdown:hover .dropdown-menu { display: block; }
   .dropdown-menu a { padding: 10px 18px; font-size: 0.85rem; border-radius: 0; }
   .dropdown-menu a:hover { background: var(--bg-alt); }
-  .dropdown:hover .dropdown-menu { display: block; }
-  .dropdown-toggle::after { content: ' ▼'; font-size: 0.6rem; opacity: 0.6; }
-  
-  /* Mobile menu */
   .menu-toggle { display: none; background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--primary); }
-  @media (max-width: 768px) {
-    .nav-links { display: none; position: absolute; top: 60px; left: 0; right: 0; background: white; flex-direction: column; padding: 16px; box-shadow: var(--card-hover); }
-    .nav-links.active { display: flex; }
-    .dropdown-menu { position: static; box-shadow: none; border: none; padding-left: 16px; display: none; }
-    .dropdown.open .dropdown-menu { display: block; }
-    .menu-toggle { display: block; }
-  }
   
   /* Hero */
-  .hero { min-height: 100vh; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, var(--primary) 0%, #1e6091 50%, var(--primary-dark) 100%); color: white; text-align: center; padding: 100px 20px 60px; position: relative; overflow: hidden; }
-  .hero::before { content: ''; position: absolute; top: -50%; right: -20%; width: 600px; height: 600px; background: rgba(224,122,95,0.12); border-radius: 50%; }
-  .hero::after { content: ''; position: absolute; bottom: -30%; left: -10%; width: 400px; height: 400px; background: rgba(255,255,255,0.06); border-radius: 50%; }
-  .hero-content { position: relative; z-index: 1; max-width: 800px; }
-  .hero-badge { display: inline-block; background: rgba(224,122,95,0.2); border: 1px solid var(--accent); color: var(--accent-light); padding: 6px 16px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; margin-bottom: 24px; letter-spacing: 1px; }
-  .hero h1 { font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 800; line-height: 1.15; margin-bottom: 20px; }
+  .hero { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); color: white; padding: 140px 20px 100px; text-align: center; }
+  .hero-content { max-width: 800px; margin: 0 auto; }
+  .hero-badge { display: inline-block; background: rgba(255,255,255,0.15); padding: 6px 16px; border-radius: 20px; font-size: 0.85rem; margin-bottom: 20px; }
+  .hero h1 { font-size: 3rem; margin-bottom: 16px; line-height: 1.2; }
   .hero h1 span { color: var(--accent-light); }
-  .hero-subtitle { font-size: clamp(1rem, 2vw, 1.3rem); opacity: 0.95; margin-bottom: 40px; max-width: 600px; margin-left: auto; margin-right: auto; }
-  .hero-stats { display: flex; justify-content: center; gap: 40px; margin-bottom: 40px; flex-wrap: wrap; }
-  .stat { text-align: center; }
-  .stat-number { font-size: 2.2rem; font-weight: 800; color: var(--accent-light); }
-  .stat-label { font-size: 0.8rem; opacity: 0.9; text-transform: uppercase; letter-spacing: 1px; }
+  .hero-subtitle { font-size: 1.15rem; opacity: 0.95; margin-bottom: 40px; max-width: 600px; margin-left: auto; margin-right: auto; }
+  .hero-stats { display: flex; justify-content: center; gap: 48px; margin-bottom: 40px; flex-wrap: wrap; }
+  .stat-number { font-size: 2.5rem; font-weight: 700; color: var(--accent-light); }
+  .stat-label { font-size: 0.85rem; opacity: 0.9; text-transform: uppercase; letter-spacing: 1px; }
   .hero-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
-  .btn-primary { background: var(--accent); color: #fff; padding: 14px 32px; border-radius: 8px; text-decoration: none; font-weight: 700; font-size: 1rem; transition: all 0.3s; display: inline-block; border: none; cursor: pointer; }
+  .btn-primary { background: var(--accent); color: white; padding: 14px 32px; border-radius: 8px; text-decoration: none; font-weight: 600; transition: all 0.3s; }
   .btn-primary:hover { background: #c96a52; transform: translateY(-2px); }
-  .btn-secondary { background: transparent; color: #fff; padding: 14px 32px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 1rem; border: 2px solid rgba(255,255,255,0.4); transition: all 0.3s; display: inline-block; }
-  .btn-secondary:hover { border-color: #fff; background: rgba(255,255,255,0.12); }
+  .btn-secondary { background: rgba(255,255,255,0.15); color: white; padding: 14px 32px; border-radius: 8px; text-decoration: none; font-weight: 600; transition: all 0.3s; border: 1px solid rgba(255,255,255,0.3); }
+  .btn-secondary:hover { background: rgba(255,255,255,0.25); }
   
-  /* Sections */
-  section { padding: 80px 20px; }
-  .container { max-width: 1200px; margin: 0 auto; }
-  .section-header { text-align: center; margin-bottom: 60px; }
-  .section-header h2 { font-size: clamp(1.8rem, 3vw, 2.5rem); color: var(--primary); margin-bottom: 12px; }
-  .section-header p { color: var(--text-light); font-size: 1.1rem; max-width: 600px; margin: 0 auto; }
+  /* Section Header */
+  .section-header { text-align: center; margin-bottom: 48px; }
+  .section-header h2 { font-size: 2rem; color: var(--primary); margin-bottom: 8px; }
+  .section-header p { color: var(--text-light); font-size: 1rem; }
+  .section-number { display: block; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; color: var(--accent); margin-bottom: 8px; font-weight: 600; }
   
-  /* About / Who I Am */
-  .about { background: var(--bg-alt); }
-  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
+  /* Container */
+  .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+  
+  /* About */
+  .about { padding: 80px 20px; background: var(--bg); }
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
   .about-text h3 { font-size: 1.5rem; color: var(--primary); margin-bottom: 16px; }
-  .about-text p { color: var(--text-light); margin-bottom: 16px; font-size: 1rem; }
+  .about-text p { margin-bottom: 16px; color: var(--text-light); }
   .about-credentials { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 24px; }
-  .credential { background: white; padding: 20px; border-radius: 12px; box-shadow: var(--card-shadow); }
-  .credential-icon { font-size: 1.5rem; margin-bottom: 8px; }
-  .credential h4 { font-size: 0.9rem; color: var(--primary); margin-bottom: 4px; }
+  .credential { background: white; padding: 20px; border-radius: 12px; box-shadow: var(--card-shadow); text-align: center; }
+  .credential-icon { font-size: 1.8rem; margin-bottom: 8px; }
+  .credential h4 { font-size: 0.95rem; color: var(--primary); margin-bottom: 4px; }
   .credential p { font-size: 0.8rem; color: var(--text-light); margin: 0; }
   
-  /* Story cards */
-  .story-card { background: white; padding: 28px; border-radius: 14px; box-shadow: var(--card-shadow); margin-bottom: 20px; border-left: 4px solid var(--accent); }
-  .story-card h4 { color: var(--primary); font-size: 1.1rem; margin-bottom: 8px; }
-  .story-card .story-meta { font-size: 0.8rem; color: var(--accent); font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 12px; }
-  .story-card p { color: var(--text-light); font-size: 0.95rem; margin-bottom: 10px; }
-  .story-card blockquote { font-style: italic; color: var(--primary); border-left: 3px solid var(--accent); padding-left: 16px; margin: 12px 0; font-size: 0.95rem; }
+  /* Story Cards */
+  .story-card { background: white; padding: 32px; border-radius: 16px; box-shadow: var(--card-shadow); margin-bottom: 24px; }
+  .story-meta { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; color: var(--accent); font-weight: 700; margin-bottom: 8px; }
+  .story-card h4 { font-size: 1.3rem; color: var(--primary); margin-bottom: 12px; }
+  .story-card p { margin-bottom: 12px; color: var(--text-light); }
+  .story-card blockquote { border-left: 3px solid var(--accent); padding-left: 16px; color: var(--primary); font-style: italic; margin-top: 16px; }
   
-  /* Bilingual table */
-  .glossary-table { width: 100%; border-collapse: collapse; margin-top: 16px; }
-  .glossary-table th { background: var(--primary); color: white; padding: 10px 14px; text-align: left; font-size: 0.8rem; }
-  .glossary-table td { padding: 10px 14px; border-bottom: 1px solid var(--border); font-size: 0.9rem; }
+  /* Glossary */
+  .glossary-table { width: 100%; border-collapse: collapse; background: white; border-radius: 12px; overflow: hidden; box-shadow: var(--card-shadow); }
+  .glossary-table th { background: var(--primary); color: white; padding: 12px 16px; text-align: left; font-size: 0.85rem; }
+  .glossary-table td { padding: 10px 16px; border-bottom: 1px solid var(--border); font-size: 0.9rem; }
   .glossary-table tr:hover { background: var(--bg-alt); }
   
   /* Programme Cards */
@@ -157,6 +153,13 @@
   .featured-card a { color: var(--accent); text-decoration: none; font-weight: 600; font-size: 0.85rem; }
   .featured-card a:hover { text-decoration: underline; }
   
+  /* CTA Card */
+  .cta-card { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); color: white; padding: 40px; border-radius: 16px; text-align: center; margin: 40px 0; }
+  .cta-card h3 { font-size: 1.5rem; margin-bottom: 12px; }
+  .cta-card p { opacity: 0.95; margin-bottom: 20px; }
+  .cta-card .btn-primary { background: var(--accent); }
+  .cta-card .btn-primary:hover { background: #c96a52; }
+  
   /* Contact */
   .contact { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); color: white; text-align: center; }
   .contact h2 { font-size: 2.2rem; margin-bottom: 16px; }
@@ -165,17 +168,25 @@
   .contact-item { text-align: center; }
   .contact-icon { width: 60px; height: 60px; background: var(--accent); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin: 0 auto 12px; }
   .contact-item h4 { margin-bottom: 6px; }
-  .contact-item a { color: var(--accent-light); text-decoration: none; }
+  .contact-item a { color: white; text-decoration: none; }
   .contact-item a:hover { text-decoration: underline; }
+  .contact-item span { color: rgba(255,255,255,0.85); }
   .contact-btn { display: inline-block; background: var(--accent); color: white; padding: 14px 32px; border-radius: 8px; text-decoration: none; font-weight: 700; font-size: 1rem; transition: all 0.3s; }
   .contact-btn:hover { background: #c96a52; transform: translateY(-2px); }
   
   /* Footer */
   footer { background: var(--primary-dark); color: #f0ece3; padding: 40px 20px; text-align: center; }
   footer p { opacity: 0.85; font-size: 0.9rem; }
+  .footer-closing { font-size: 1.1rem; font-weight: 600; color: white; margin-bottom: 8px; opacity: 1; }
   
   /* Mobile */
   @media (max-width: 768px) {
+    .menu-toggle { display: block; }
+    .nav-links { display: none; position: absolute; top: 60px; left: 0; right: 0; background: white; flex-direction: column; padding: 16px; border-bottom: 1px solid var(--border); box-shadow: var(--card-shadow); }
+    .nav-links.active { display: flex; }
+    .dropdown-menu { position: static; box-shadow: none; border: none; padding-left: 16px; display: none; }
+    .dropdown.open .dropdown-menu { display: block; }
+    .hero h1 { font-size: 2rem; }
     .hero-stats { gap: 20px; }
     .about-grid { grid-template-columns: 1fr; }
     .about-credentials { grid-template-columns: 1fr; }
@@ -233,9 +244,12 @@
 
 <section class="about" id="about">
   <div class="container">
+    <div class="section-header">
+      <span class="section-number">Section 01 — Who I Am</span>
+      <h2>Who I Am</h2>
+    </div>
     <div class="about-grid">
       <div class="about-text">
-        <h3>Who I Am</h3>
         <p><strong>Connor Scanlan</strong> — Computer Science Educator with SETU Level 8 Honours Bachelor's in Cybercrime & IT Security, Qualified Teacher Status (QTS), and IB-trained inquiry-based learning practitioner.</p>
         <p>Four years with the Victoria Education Group. Native English speaker teaching in bilingual EN/CN contexts. Martial arts discipline informs meticulous preparation and structured, supportive classrooms.</p>
         <p>I'm repositioning from primary generalist to secondary Computer Science specialist — and I've already built what you need.</p>
@@ -281,6 +295,33 @@
 <section style="background: var(--bg); padding: 80px 20px;">
   <div class="container">
     <div class="section-header">
+      <span class="section-number">Section 02 — Why VPA</span>
+      <h2>Why VPA</h2>
+      <p>For four years, I've been part of the Victoria family — currently at Victoria Park School, ten metres from the VPA campus.</p>
+    </div>
+    <div class="about-grid">
+      <div class="about-text">
+        <p>I walk past those buildings every morning. I know the teachers. I've seen the standards. I've felt the culture.</p>
+        <p>When I look at what VPA is building — a rigorous, bilingual, internationally-minded programme — I see exactly where I fit.</p>
+        <p>Computer Science isn't just another subject on a timetable. It's the language of the world these students will graduate into. China is investing in it. The universities are demanding it. The jobs are waiting for it.</p>
+      </div>
+      <div class="about-text">
+        <p>I've spent months building this curriculum — not because anyone asked me to, but because I believe <strong>VPA deserves something exceptional</strong>. Every lesson plan, every worksheet, every bilingual glossary: it's all ready.</p>
+        <p>I know this school. I care about this community. And I'm ready to give it everything I have.</p>
+        <div class="cta-card" style="margin-top: 24px;">
+          <h3>View the Full Curriculum Proposal</h3>
+          <p>18 weeks. 80+ documents. 100% CIE / IB aligned.</p>
+          <a href="#featured" class="btn-primary">Explore All Documents →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="background: var(--bg-alt); padding: 80px 20px;">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-number">Section 03 — My Practice</span>
       <h2>My Practice</h2>
       <p>These aren't just Computer Science stories. They're evidence of who I am as an educator.</p>
     </div>
@@ -303,9 +344,10 @@
   </div>
 </section>
 
-<section style="background: var(--bg-alt); padding: 80px 20px;">
+<section style="background: var(--bg); padding: 80px 20px;">
   <div class="container">
     <div class="section-header">
+      <span class="section-number">Section 04 — Technology & AI</span>
       <h2>Technology & AI Literacy</h2>
       <p>Honest. Not Fearful.</p>
     </div>
@@ -325,9 +367,10 @@
   </div>
 </section>
 
-<section style="background: var(--bg); padding: 80px 20px;">
+<section style="background: var(--bg-alt); padding: 80px 20px;">
   <div class="container">
     <div class="section-header">
+      <span class="section-number">Section 05 — Bilingual Practice</span>
       <h2>Bilingual Practice</h2>
       <p>EAL scaffolding in technical subjects. Every student deserves access to the language of Computer Science.</p>
     </div>
@@ -362,9 +405,10 @@
   </div>
 </section>
 
-<section style="background: var(--bg-alt); padding: 80px 20px;">
+<section style="background: var(--bg); padding: 80px 20px;">
   <div class="container">
     <div class="section-header">
+      <span class="section-number">Section 06 — Professional Standards</span>
       <h2>Professional Standards</h2>
       <p>High expectations. High support. Continuous growth.</p>
     </div>
@@ -393,9 +437,10 @@
   </div>
 </section>
 
-<section class="programmes" id="programmes">
+<section class="programmes" id="programmes" style="padding: 80px 20px;">
   <div class="container">
     <div class="section-header">
+      <span class="section-number">Section 07 — The Curriculum</span>
       <h2>Four Integrated Programmes</h2>
       <p>One seamless pathway from first digital steps to university-level computer science</p>
     </div>
@@ -452,9 +497,10 @@
   </div>
 </section>
 
-<section class="featured" id="featured">
+<section class="featured" id="featured" style="padding: 80px 20px;">
   <div class="container">
     <div class="section-header">
+      <span class="section-number">Section 08 — Document Library</span>
       <h2>Quick Access — Featured Documents</h2>
       <p>Curated highlights from across all four programmes</p>
     </div>
@@ -502,6 +548,7 @@
 <section style="background: var(--bg); padding: 80px 20px;">
   <div class="container">
     <div class="section-header">
+      <span class="section-number">Section 09 — Full Library</span>
       <h2>Full Document Library</h2>
       <p>All documents organised by programme — click to expand</p>
     </div>
@@ -764,12 +811,12 @@
       <div class="contact-item">
         <div class="contact-icon">💬</div>
         <h4>WeChat</h4>
-        <span style="color: var(--accent-light);">Skits2026</span>
+        <span>Skits2026</span>
       </div>
       <div class="contact-item">
         <div class="contact-icon">📍</div>
         <h4>Location</h4>
-        <span style="color: var(--accent-light);">Shenzhen, China</span>
+        <span>Shenzhen, China</span>
       </div>
     </div>
     <a href="mailto:Connor.scanlan1205@outlook.com" class="contact-btn">Get in Touch</a>
@@ -777,6 +824,7 @@
 </section>
 
 <footer>
+  <p class="footer-closing">I know this school. I'm ready to give it everything I have.</p>
   <p>Connor Scanlan — Computer Science Educator | K–12 CS & ICT Curriculum Portfolio</p>
   <p style="margin-top: 8px; font-size: 0.8rem;">All documents include bilingual scaffolding (EN + 中文 + Pinyin) | Standards aligned: Common Core, CIE, IB</p>
 </footer>
@@ -831,15 +879,18 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   });
 });
 
-// Mobile dropdown toggle
-if (window.innerWidth <= 768) {
+// Mobile dropdown toggle - handles resize properly
+function setupMobileDropdowns() {
   document.querySelectorAll('.dropdown-toggle').forEach(toggle => {
     toggle.addEventListener('click', function(e) {
-      e.preventDefault();
-      this.closest('.dropdown').classList.toggle('open');
+      if (window.innerWidth <= 768) {
+        e.preventDefault();
+        this.closest('.dropdown').classList.toggle('open');
+      }
     });
   });
 }
+setupMobileDropdowns();
 </script>
 
 </body>
