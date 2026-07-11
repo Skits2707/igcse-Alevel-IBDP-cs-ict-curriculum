@@ -132,6 +132,12 @@ nav{
  transform:translateY(-1px);
  box-shadow:var(--shadow-hover);
 }
+.dropdown{position:relative;}
+.dropdown-menu{position:absolute;top:100%;left:0;background:#fff;border:1px solid var(--border);border-radius:var(--radius-sm);box-shadow:var(--shadow-hover);padding:8px 0;min-width:200px;display:none;z-index:1001;}
+.dropdown:hover .dropdown-menu{display:block;}
+.dropdown-menu li{list-style:none;}
+.dropdown-menu a{display:block;padding:8px 16px;font-size:0.8rem;color:var(--text-light);text-decoration:none;transition:var(--transition);}
+.dropdown-menu a:hover{background:var(--cream-warm);color:var(--navy);}
 .mobile-menu-btn{
  display:none;
  background:none;
@@ -144,7 +150,7 @@ nav{
 
 /* Hero */
 .hero{
- min-height:100vh;
+ min-height:70vh;
  display:flex;
  align-items:center;
  justify-content:center;
@@ -1250,7 +1256,13 @@ footer p{
  .nav-links.active{
  display:flex;
  }
- .mobile-menu-btn{
+ .dropdown{position:relative;}
+.dropdown-menu{position:absolute;top:100%;left:0;background:#fff;border:1px solid var(--border);border-radius:var(--radius-sm);box-shadow:var(--shadow-hover);padding:8px 0;min-width:200px;display:none;z-index:1001;}
+.dropdown:hover .dropdown-menu{display:block;}
+.dropdown-menu li{list-style:none;}
+.dropdown-menu a{display:block;padding:8px 16px;font-size:0.8rem;color:var(--text-light);text-decoration:none;transition:var(--transition);}
+.dropdown-menu a:hover{background:var(--cream-warm);color:var(--navy);}
+.mobile-menu-btn{
  display:block;
  }
  .nav-cta{
@@ -1304,17 +1316,6 @@ footer p{
  font-size:1.2rem;
  }
 }
-
-/* Coming Soon */
-.doc-link.coming-soon{
- opacity:0.5;
- cursor:not-allowed;
-}
-.doc-link.coming-soon .doc-name::after{
- content:" (Coming Soon)";
- color:var(--text-muted);
- font-size:0.75rem;
-}
 </style>
 </head>
 <body>
@@ -1330,11 +1331,19 @@ footer p{
  <ul class="nav-links" id="navLinks">
  <li><a href="#about">About</a></li>
  <li><a href="#pathway">Pathways</a></li>
- <li><a href="#programmes">Curriculum</a></li>
+ <li class="dropdown">
+      <a href="#programmes">Curriculum ▾</a>
+      <ul class="dropdown-menu">
+        <li><a href="#igcse-cs">IGCSE Computer Science</a></li>
+        <li><a href="#alevel-cs">A-Level Computer Science</a></li>
+        <li><a href="#ibdp-cs">IB DP Computer Science</a></li>
+        <li><a href="#ict">ICT Programme</a></li>
+      </ul>
+    </li>
  <li><a href="#library">Documents</a></li>
  <li><a href="#bilingual">Bilingual</a></li>
  <li><a href="#contact">Contact</a></li>
- <li><a href="#" class="nav-cta" onclick="openDownloadModal();return false;">DownloadPlan</a></li>
+ <li><a href="#" class="nav-cta" onclick="openDownloadModal();return false;">Download Plan</a></li>
  </ul>
  </div>
 </nav>
@@ -1342,9 +1351,9 @@ footer p{
 <!-- Hero -->
 <section class="hero" id="main-content">
  <div class="hero-content">
- <span class="hero-label">K–12 CurriculumSolution</span>
+ <span class="hero-label">K–12 Curriculum Solution</span>
  <h1>Connor Scanlan<br>Computer Science Educator</h1>
- <p class="hero-subtitle">A Comprehensive Set、andStandards Alignment'sCurriculum System，From Digital Foundations to University Entry——containsBilingualScaffolding、DifferentiationTeachingandCompleteAssessment System。</p>
+ <p class="hero-subtitle">Complete K–12 curriculum system with standards alignment, from digital foundations to university entry. Features bilingual scaffolding, differentiated teaching, and a full assessment framework.</p>
  <div class="hero-stats">
  <div class="stat">
  <div class="stat-number">4</div>
@@ -1364,9 +1373,9 @@ footer p{
  </div>
  </div>
  <div class="hero-buttons">
- <a href="#library" class="btn-primary">ExploreCurriculumDocuments</a>
+ <a href="#library" class="btn-primary">Explore Curriculum</a>
  <a href="#contact" class="btn-secondary">Contact</a>
- <button class="btn-secondary" onclick="openDownloadModal()">DownloadPlan</button>
+ <button class="btn-secondary" onclick="openDownloadModal()">Download Plan</button>
  </div>
  </div>
 </section>
@@ -1382,9 +1391,9 @@ footer p{
  </div>
  <div class="about-grid">
  <div class="about-text">
- <p><strong>Connor Scanlan</strong> — Computer Science Educator，HoldSETU 8Level HonorsBachelor's Degree（NetworksCrimeandITSecurity）、QualifiedTeachTeacher Qualification（QTS），and receivedIBInquiry-Based Learning Training。</p>
- <p>inVictoriaTeachEducation Group for 4 years。withEnglishNative Speaker，inBilingualEnglish/ChineseEnvironmentChineseTeaching。Martial Arts Training Developed Discipline'sPreparation and Structure、Supportive'sClassroom。</p>
- <p>MeTransitioning from Primary GeneralistTeachTeacher toChineseScienceComputer ScienceSpecialist——MoreoverMeAlready Built What You Need'sEverything。</p>
+ <p><strong>Connor Scanlan</strong> — Computer Science Educator. Holds SETU Level 8 Honours Bachelor's Degree (Networks, Crime and IT Security), Qualified Teacher Status (QTS), and received IB Inquiry-Based Learning Training.</p>
+ <p>Taught at Victoria Education Group for 4 years. English native speaker teaching in bilingual English/Chinese environments. Martial arts training developed discipline, preparation, structure, and a supportive classroom culture.</p>
+ <p>Transitioning from primary generalist teacher to computer science specialist — everything you need is already built.</p>
  <div class="about-credentials">
  <div class="credential">
  <div class="credential-icon">🎓</div>
@@ -1410,13 +1419,13 @@ footer p{
  </div>
  <div class="about-text">
  <h3>Why ThisCurriculum</h3>
- <p>Computer ScienceNot Just on the Timetable'sAnother Subject。It's What Students Will Graduate Into'sWorld'sLanguage。ChineseChina isinInvesting in It。Universities Need It。WorkinWaiting for It。</p>
- <p>I spent months building this curriculum——Not because someone asked me，but because I believe every school deserves excellence。Every lesson plan、Every worksheet、EveryBilingualGlossary：Everything is ready。</p>
+ <p>Computer ScienceNot Just on the Timetable'sAnother Subject. It's What Students Will Graduate Into'sWorld'sLanguage. ChineseChina isinInvesting in It. Universities Need It. WorkinWaiting for It. </p>
+ <p>I spent months building this curriculum — Not because someone asked me，but because I believe every school deserves excellence. Every lesson plan, Every worksheet, EveryBilingualGlossary：Everything is ready. </p>
  <p><strong>ForEALLearners'sInternationalSchoolBuilt For：</strong></p>
  <ul>
- <li>EveryDocumentsChinese'sBilingualScaffolding（English + ChineseLanguage + Pinyin）</li>
- <li>Every Lesson'sBronze/Silver/GoldDifferentiation</li>
- <li>Complete'sMock ExamSeries and Gap Analysis</li>
+ <li>EveryDocumentsChinese'sBilingualScaffolding (English + ChineseLanguage + Pinyin) </li>
+ <li>Bronze/Silver/GoldDifferentiation</li>
+ <li>Complete'sMock ExamDifferentiation Series</li>
  <li>Standards Alignment：Common Core, CIE 0478/0417/9618, IB DP</li>
  </ul>
  </div>
@@ -1482,19 +1491,19 @@ footer p{
  <div class="section-header">
  <span class="section-number">Section 3 — Me'sTeaching Practice</span>
  <h2>Me'sTeaching Practice</h2>
- <p>These Are Not JustComputer Science'sStory。They AreMeAsTeachEducator'sEvidence。</p>
+ <p>These Are Not JustComputer Science'sStory. They AreMeAsTeachEducator'sEvidence. </p>
  </div>
  <div class="story-card fade-in">
  <div class="story-meta">Story 01</div>
  <h4>No One Saw'sGirl</h4>
- <p>A shy、quiet student，Hiding in the back of classrooms，who barely spoke，with no confidence。Her parents and teachers had given up on her。I stopped trying"Teach"She，and started trying to understand her。Slowly building trust。At Age Six，She Became One of the Best'sStudents in Class——NowinAge Seven，She Attends a Top Hong KongSchoolOne of。</p>
- <blockquote>Relationship Before Learning。You Can't Reach What You Can't See'sChild。</blockquote>
+ <p>A shy, quiet student，Hiding in the back of classrooms，who barely spoke，with no confidence. Her parents and teachers had given up on her. I stopped trying"Teach"She，and started trying to understand her. Slowly building trust. At Age Six，She Became One of the Best Students in Class — NowinAge Seven，She Attends a Top Hong KongSchoolOne of. </p>
+ <blockquote>Relationship Before Learning. You Can't Reach What You Can't See'sChild. </blockquote>
  </div>
  <div class="story-card fade-in">
  <div class="story-meta">Story 02</div>
  <h4>EveryEveryone Gave Up'sBoy</h4>
- <p>One with Severe Behavioral Needs'sStudents，Removed FromTeachClassroom for 3 Years。Labeled"CannotTeach"'sLabel。MeSimply Refused to Give Up on Him。Six Months'sConsistent Expectations and Patience。HeNowinCanwithSitting、Listening、Participatingandand Completing Work Independently。He Wrote a Story——proudly smiling。</p>
- <blockquote>"CannotTeach"Usually Means"Not Yet Reached"。EveryEvery Child Has a Door to Dignity'sDoor。</blockquote>
+ <p>One with Severe Behavioral Needs'sStudents，Removed FromTeachClassroom for 3 Years. Labeled"CannotTeach"'sLabel. MeSimply Refused to Give Up on Him. Six Months of Consistent Expectations and Patience. HeNowinCanwithSitting, Listening, Participatingandand Completing Work Independently. He Wrote a Story — proudly smiling. </p>
+ <blockquote>"CannotTeach"Usually Means"Not Yet Reached". EveryEvery Child Has a Door to Dignity'sDoor. </blockquote>
  </div>
  </div>
 </section>
@@ -1507,19 +1516,19 @@ footer p{
  <div class="section-header">
  <span class="section-number">Section 4 — TechnologyandAILiteracy</span>
  <h2>TechnologyandAILiteracy</h2>
- <p>Honest。Fearless。</p>
+ <p>Honest. Fearless. </p>
  </div>
  <div class="about-grid">
  <div class="about-text">
  <h3>Me'sBackground</h3>
- <p>I hold an IrishSETU 8Level HonorsBachelor's Degree（NetworksCrimeandITSecurity）。My formal training is in complex systems。My passion is making them accessible to young learners。</p>
+ <p>I hold an IrishSETU 8Level HonorsBachelor's Degree (NetworksCrimeandITSecurity) . My formal training is in complex systems. My passion is making them accessible to young learners. </p>
  <h3>MeHowTeachTeachAI</h3>
- <p>ChildreninAIGrowing Up in the Digital Age。MeNot Pretending It Doesn't Existin，Nor Warning Them Screens Will Hurt Their Eyes。MeHonestly Saying：If You Know How to Use It，AICan Help You。Screen Time Has Limits，But Purposeful's'sSmall Doses Beat Blind Prohibition。</p>
+ <p>ChildreninAIGrowing Up in the Digital Age. MeNot Pretending It Doesn't Existin，Nor Warning Them Screens Will Hurt Their Eyes. MeHonestly Saying：If You Know How to Use It，AITechnology Can Help You. Screen Time Has Limits，But Purposeful Use Has Value's'sSmall Doses Beat Blind Prohibition. </p>
  </div>
  <div class="about-text">
  <h3>ClassroomChinese'sNetwork Security</h3>
- <p>Me'sNetworksCybersecurity Background Isn't Just a Certificate——It's aTeachingTool。MeBringing RealCase StudyInto the Classroom：WannaCry、Social Engineering、Password Hygiene。Students Learn to Protect Themselves，Not Because They Fear，But Because They Understand。</p>
- <blockquote>MeTeachingStudents Use Technology Well——Not Protecting Them From Technology。</blockquote>
+ <p>Me'sNetworksCybersecurity Background Isn't Just a Certificate — It's aTeachingTool. MeBringing Real-World ContextCase StudyInto the Classroom：WannaCry, Social Engineering, Password Hygiene. Students Learn to Protect Themselves，Not Because They Fear，But Because They Understand. </p>
+ <blockquote>MeTeachingStudents Use Technology Well — Not Protecting Them From Technology. </blockquote>
  </div>
  </div>
  </div>
@@ -1533,20 +1542,20 @@ footer p{
  <div class="section-header">
  <span class="section-number">Section 5 — BilingualTeaching Practice</span>
  <h2>BilingualTeaching Practice</h2>
- <p>Technical SubjectChinese'sEALScaffolding。EveryEvery Student Should Have AccessComputer ScienceLanguage'sPathway。</p>
+ <p>Technical SubjectChinese'sEALScaffolding. EveryEvery Student Should Have AccessComputer ScienceLanguage'sPathway. </p>
  </div>
- <p>inBilingualTeaching CS in this environment is more than translation——but building conceptual bridges。Every technical term pairedEALEvery learner has potential barriers。Me'sMethodSystematically removing these barriers。</p>
+ <p>inBilingualTeaching CS in this environment is more than translation — but building conceptual bridges. Every technical term pairedEALEvery learner has potential barriers. Me'sMethodSystematically removing these barriers. </p>
  <div class="about-grid" style="margin-bottom:48px">
  <div class="about-text">
  <h3>Me'sMethod</h3>
- <p><strong>BilingualKeywords First</strong> — Displayed at Start of Every Lesson3-5EnglishChinesecomparison'sKeyTerminology。StudentsinSee Vocabulary Before Encountering Concepts，Preparing for Understanding。</p>
- <p><strong>VisualScaffolding</strong> — Diagrams、Flowchartsand Physical Demos Reduce Language Dependence。Students Can Understand by Moving Physical CardsBinaryAddition，Without Reading Any Sentences。</p>
- <p><strong>Sentence Start</strong> — For extended written answers，I provide materials in both languagesSentence Start。This removed"Blank Page"Anxiety，Letting students focus on demonstrating technical understanding。</p>
+ <p><strong>BilingualKeywords First</strong> — Displayed at Start of Every Lesson3-5EnglishChinesecomparison'sKeyTerminology. StudentsinSee Vocabulary Before Encountering Concepts，Preparing for Understanding. </p>
+ <p><strong>VisualScaffolding</strong> — Diagrams, Flowchartsand Physical Demos Reduce Language Dependence. Students Can Understand by Moving Physical CardsBinaryAddition，Without Reading Any Sentences. </p>
+ <p><strong>Sentence Start</strong> — For extended written answers，I provide materials in both languagesSentence Start. This removed"Blank Page"Anxiety，Letting students focus on demonstrating technical understanding. </p>
  </div>
  <div class="about-text">
  <h3>Collaborative Learning</h3>
- <p><strong>Pair Before Individual</strong> — StudentsinDiscuss Concepts in Pairs Before Individual Work（Usually Mixed Language Ability）。This Builds Confidence and Generates Peer Explanations，Sometimes More Effective ThanTeachTeacher'sExplanations。</p>
- <p><strong>BilingualGlossary Preview</strong> — EveryCurriculumProgramscontains a comprehensive glossary，containsEnglishLanguage、ChineseCharacters and Pinyin。Students reference these throughout the course。</p>
+ <p><strong>Pair Before Individual</strong> — StudentsinDiscuss Concepts in Pairs Before Individual Work (Usually Mixed Language Ability) . This Builds Confidence and Generates Peer Explanations，Sometimes More Effective ThanTeachTeacher Explanations. </p>
+ <p><strong>BilingualGlossary Preview</strong> — EveryCurriculumProgramscontains a comprehensive glossary，containsEnglishLanguage, ChineseCharacters and Pinyin. Students reference these throughout the course. </p>
  </div>
  </div>
  <table class="glossary-table">
@@ -1574,28 +1583,28 @@ footer p{
  <div class="section-header">
  <span class="section-number">Section 6 — Professional Standards</span>
  <h2>Professional Standards</h2>
- <p>High Expectations。High Support。Continuous Growth。</p>
+ <p>High Expectations. High Support. Continuous Growth. </p>
  </div>
  <div class="prog-grid">
  <div class="prog-card fade-in">
  <div class="prog-icon">🌍</div>
  <h3>IBPhilosophy</h3>
- <p>Inquiry-Based LearningNot a methodology I read about——but how I teach every day。I design lessons that start with questions, not answers。Students build understanding through exploration、reflection and connection。</p>
+ <p>Inquiry-Based LearningNot a methodology I read about — but how I teach every day. I design lessons that start with questions, not answers. Students build understanding through exploration, reflection and connection. </p>
  </div>
  <div class="prog-card fade-in">
  <div class="prog-icon">✅</div>
  <h3>QTSFramework</h3>
- <p>Me'sQualifiedTeachTeacher Qualification MeansMeMeetingEnglishNational Rigorous'sTeaching PracticeStandards——Subject Knowledge、TeachingMethods、Assessment and Professional Conduct。Every Lesson Has Clear'sObjectives，EveryEvery Student Has Clear'sPathways。</p>
+ <p>Me'sQualifiedTeachTeacher Qualification MeansMeMeetingEnglishNational Rigorous'sTeaching PracticeStandards — Subject Knowledge, TeachingMethods, Assessment and Professional Conduct. Every Lesson Has Clear'sObjectives，EveryEvery Student Has Clear'sPathways. </p>
  </div>
  <div class="prog-card fade-in">
  <div class="prog-icon">🥋</div>
  <h3>Martial Arts Discipline</h3>
- <p>MeFollowing Taekwondo Principles："Unprepared is to Fail。"MeApplying This toTeaching'sEveryAspects。Every Lesson is Carefully Planned。EveryResources Prepared in Advance。EveryContingencies Considered。</p>
+ <p>MeFollowing Taekwondo Principles："Unprepared is to Fail. "MeApplying This toTeaching'sEveryAspects. Every Lesson is Carefully Planned. EveryResources Prepared in Advance. EveryContingencies Considered. </p>
  </div>
  <div class="prog-card fade-in">
  <div class="prog-icon">📈</div>
  <h3>Continuous Growth</h3>
- <p>MeinMyself'sBuilt This inCurriculum，BecauseMeBelieve in Proactive'sProfessional Growth。MeSeeking Feedback、ReflectingPracticeand Continuously Improving。Best'sTeachTeachers Never Stop Learning。</p>
+ <p>MeinI Built This in My Own TimeCurriculum，BecauseMeBelieve in Proactive'sProfessional Growth. MeSeeking Feedback, ReflectingPracticeand Continuously Improving. Best'sTeachTeachers Never Stop Learning. </p>
  </div>
  </div>
  </div>
@@ -1616,9 +1625,9 @@ footer p{
  <div class="prog-icon">🖥️</div>
  <h3>IGCSE Computer Science</h3>
  <div class="prog-exam">CIE 0478</div>
- <p>Theoretical FoundationandProgramming Fundamentals。Two YearsCurriculum，containsExam Papers1（Theory）and Exam Papers2（Problem SolvingandProgramming）。</p>
+ <p>Theoretical FoundationandProgramming Fundamentals. Two YearsCurriculum，containsExam Papers1 (Theory) and Exam Papers2 (Problem SolvingandProgramming) . </p>
  <ul class="prog-features">
- <li>Binary、Hardware、Networks、Security</li>
+ <li>Binary, Hardware, Networks, Security</li>
  <li>PythonProgrammingandPseudocode</li>
  <li>5timesMock Examand Gap Analysis</li>
  </ul>
@@ -1628,11 +1637,11 @@ footer p{
  <div class="prog-icon">📱</div>
  <h3>ICT CurriculumPrograms</h3>
  <div class="prog-exam">CIE 0417 + Common Core</div>
- <p>From DigitalLiteracytoAdvancedProductivity。FromGrade 2toIGCSE ICT's9-Year SpiralCurriculum——Word Processing、Spreadsheets、Databases、Web Design。</p>
+ <p>From DigitalLiteracytoAdvancedProductivity. FromGrade 2toIGCSE ICT's9-Year SpiralCurriculum — Word Processing, Spreadsheets, Databases, Web Design. </p>
  <ul class="prog-features">
  <li>Age-Appropriate Digital CitizenshipLiteracy</li>
  <li>Microsoft Office / Google Workspace</li>
- <li>HTML、CSSandDatabasesSkills</li>
+ <li>HTML, CSSandDatabasesSkills</li>
  </ul>
  <button class="prog-btn" onclick="event.stopPropagation();openProgramme('ict-program')">ViewDocuments</button>
  </div>
@@ -1640,10 +1649,10 @@ footer p{
  <div class="prog-icon">🎓</div>
  <h3>A-Level Computer Science</h3>
  <div class="prog-exam">CIE 9618</div>
- <p>AdvancedTheory、Programming ProjectandExamMastery。AS + A2CoveringDatabases、Boolean Logic、AIand Practical SoftwareDevelopment。</p>
+ <p>AdvancedTheory, Programming ProjectandExamMastery. AS + A2CoveringDatabases, Boolean Logic, AIand Practical SoftwareDevelopment. </p>
  <ul class="prog-features">
- <li>SQL、Boolean Algebra、Floating Point</li>
- <li>Programming Project（NEAStyle）</li>
+ <li>SQL, Boolean Algebra, Floating Point</li>
+ <li>Programming Project (NEAStyle) </li>
  <li>UniversityandCareer Pathways</li>
  </ul>
  <button class="prog-btn" onclick="event.stopPropagation();openProgramme('alevel-cs')">ViewDocuments</button>
@@ -1652,7 +1661,7 @@ footer p{
  <div class="prog-icon">🌍</div>
  <h3>IB DP Computer Science</h3>
  <div class="prog-exam">IB DP (2024+)</div>
- <p>SLandHLPathways，containsInternal Assessment Support。Topic1-7、TOKContact、Case StudyPreparation，and With Examples'sIAHandbook。</p>
+ <p>SLandHLPathways，containsInternal Assessment Support. Topic1-7, TOKContact, Case StudyPreparation，with Examples'sIAHandbook. </p>
  <ul class="prog-features">
  <li>SLandHLDifferentiation</li>
  <li>containsMark Schemes'sCompleteIAGuide</li>
@@ -1672,7 +1681,7 @@ footer p{
  <div class="section-header">
  <span class="section-number">Section 8 — Documents</span>
  <h2>Complete CourseDocuments</h2>
- <p>All ProgramsDocumentsOrganized by Project，All visible。Click anyDocumentsto view。</p>
+ <p>All ProgramsDocumentsOrganized by Project，All visible. Click anyDocumentsto view. </p>
  </div>
 
  <!-- IGCSE CS -->
@@ -1689,39 +1698,39 @@ footer p{
  <div class="sub-section">
  <div class="sub-header">📁 Grade 9 — Term 1</div>
  <div class="doc-grid">
- <a class="doc-link" href="https://raw.githubusercontent.com/Skits2707/igcse-Alevel-IBDP-cs-ict-curriculum/main/IGCSE_Computer_Science/Year_9_Semester_1/Course_Overview.html"><div class="doc-icon html">HTML</div><div class="doc-info"><div class="doc-name">Course Overview</div><div class="doc-meta">Year 9 S1 • Syllabus</div></div><div class="doc-arrow">→</div></a>
- <a class="doc-link" href="https://raw.githubusercontent.com/Skits2707/igcse-Alevel-IBDP-cs-ict-curriculum/main/IGCSE_Computer_Science/Year_9_Semester_1/Weeks_1-6_Data_Representation.html"><div class="doc-icon html">HTML</div><div class="doc-info"><div class="doc-name">Week1-6Week：Data Representation</div><div class="doc-meta">Binary、Hexadecimal、ASCII</div></div><div class="doc-arrow">→</div></a>
- <a class="doc-link" href="https://raw.githubusercontent.com/Skits2707/igcse-Alevel-IBDP-cs-ict-curriculum/main/IGCSE_Computer_Science/Year_9_Semester_1/Weeks_7-11_Hardware_and_Software.html"><div class="doc-icon html">HTML</div><div class="doc-info"><div class="doc-name">Week7-11Week：Hardware andSoftware</div><div class="doc-meta">CPU、Storage、Operating Systems</div></div><div class="doc-arrow">→</div></a>
- <a class="doc-link" href="https://raw.githubusercontent.com/Skits2707/igcse-Alevel-IBDP-cs-ict-curriculum/main/IGCSE_Computer_Science/Year_9_Semester_1/Weeks_12-18_Networks_and_Revision.html"><div class="doc-icon html">HTML</div><div class="doc-info"><div class="doc-name">Week12-18Week：NetworksandReview</div><div class="doc-meta">LAN/WAN、Topology、Security</div></div><div class="doc-arrow">→</div></a>
- 
+ <a class="doc-link" href="https://raw.githubusercontent.com/Skits2707/igcse-Alevel-IBDP-cs-ict-curriculum/main/IGCSE_Computer_Science/Year_9_Semester_1/Course%20Overview.pdf"><div class="doc-icon pdf">PDF</div><div class="doc-info"><div class="doc-name">Course Overview</div><div class="doc-meta">Year 9 S1 • Syllabus</div></div><div class="doc-arrow">→</div></a>
+ <a class="doc-link" href="https://raw.githubusercontent.com/Skits2707/igcse-Alevel-IBDP-cs-ict-curriculum/main/IGCSE_Computer_Science/Year_9_Semester_1/Weeks%201-6%20Data%20Representation.pdf"><div class="doc-icon pdf">PDF</div><div class="doc-info"><div class="doc-name">Weeks 1-6: Data Representation</div><div class="doc-meta">Binary, Hexadecimal, ASCII</div></div><div class="doc-arrow">→</div></a>
+ <a class="doc-link" href="https://raw.githubusercontent.com/Skits2707/igcse-Alevel-IBDP-cs-ict-curriculum/main/IGCSE_Computer_Science/Year_9_Semester_1/Weeks%207-11%20Hardware%20and%20Software.pdf"><div class="doc-icon pdf">PDF</div><div class="doc-info"><div class="doc-name">Weeks 7-11: Hardware andSoftware</div><div class="doc-meta">CPU, Storage, Operating Systems</div></div><div class="doc-arrow">→</div></a>
+ <a class="doc-link" href="https://raw.githubusercontent.com/Skits2707/igcse-Alevel-IBDP-cs-ict-curriculum/main/IGCSE_Computer_Science/Year_9_Semester_1/Weeks%2012-18%20Networks%20and%20Revision.pdf"><div class="doc-icon pdf">PDF</div><div class="doc-info"><div class="doc-name">Weeks 12-18: NetworksandReview</div><div class="doc-meta">LAN/WAN, Topology, Security</div></div><div class="doc-arrow">→</div></a>
+
  </div>
  </div>
  <div class="sub-section">
  <div class="sub-header">📁 Grade 9 — Term 2</div>
  <div class="doc-grid">
- <div class="doc-link coming-soon"><div class="doc-icon html">HTML</div><div class="doc-info"><div class="doc-name">Course Overview</div><div class="doc-meta">Year 9 S2 • Syllabus</div></div><div class="doc-arrow">→</div></div>
- <a class="doc-link" href="https://raw.githubusercontent.com/Skits2707/igcse-Alevel-IBDP-cs-ict-curriculum/main/IGCSE_Computer_Science/Year_9_Semester_2/Weeks_1-6_Programming_Fundamentals.html"><div class="doc-icon html">HTML</div><div class="doc-info"><div class="doc-name">Week1-6Week：Programming Fundamentals</div><div class="doc-meta">Variables、Input/Output、Data Types</div></div><div class="doc-arrow">→</div></a>
- <a class="doc-link" href="https://raw.githubusercontent.com/Skits2707/igcse-Alevel-IBDP-cs-ict-curriculum/main/IGCSE_Computer_Science/Year_9_Semester_2/Weeks_7-12_Control_Structures.html"><div class="doc-icon html">HTML</div><div class="doc-info"><div class="doc-name">Week7-12Week：Control Structures</div><div class="doc-meta">if/else、Loops、Nesting</div></div><div class="doc-arrow">→</div></a>
- <a class="doc-link" href="https://raw.githubusercontent.com/Skits2707/igcse-Alevel-IBDP-cs-ict-curriculum/main/IGCSE_Computer_Science/Year_9_Semester_2/Weeks_13-18_Problem_Solving.html"><div class="doc-icon html">HTML</div><div class="doc-info"><div class="doc-name">Week13-18Week：Problem Solving</div><div class="doc-meta">Algorithms、Flowcharts、Debugging</div></div><div class="doc-arrow">→</div></a>
- 
+ <a class="doc-link" href="https://raw.githubusercontent.com/Skits2707/igcse-Alevel-IBDP-cs-ict-curriculum/main/IGCSE_Computer_Science/Year_9_Semester_2/Course%20Overview.pdf"><div class="doc-icon pdf">PDF</div><div class="doc-info"><div class="doc-name">Course Overview</div><div class="doc-meta">Year 9 S2 • Syllabus</div></div><div class="doc-arrow">→</div></a>
+ <a class="doc-link" href="https://raw.githubusercontent.com/Skits2707/igcse-Alevel-IBDP-cs-ict-curriculum/main/IGCSE_Computer_Science/Year_9_Semester_2/Weeks%201-6%20Programming%20Fundamentals.pdf"><div class="doc-icon pdf">PDF</div><div class="doc-info"><div class="doc-name">Weeks 1-6: Programming Fundamentals</div><div class="doc-meta">Variables, Input/Output, Data Types</div></div><div class="doc-arrow">→</div></a>
+ <a class="doc-link" href="https://raw.githubusercontent.com/Skits2707/igcse-Alevel-IBDP-cs-ict-curriculum/main/IGCSE_Computer_Science/Year_9_Semester_2/Weeks%207-12%20Control%20Structures.pdf"><div class="doc-icon pdf">PDF</div><div class="doc-info"><div class="doc-name">Week7-12Week：Control Structures</div><div class="doc-meta">if/else, Loops, Nesting</div></div><div class="doc-arrow">→</div></a>
+ <a class="doc-link" href="https://raw.githubusercontent.com/Skits2707/igcse-Alevel-IBDP-cs-ict-curriculum/main/IGCSE_Computer_Science/Year_9_Semester_2/Weeks%2013-18%20Problem%20Solving.pdf"><div class="doc-icon pdf">PDF</div><div class="doc-info"><div class="doc-name">Week13-18Week：Problem Solving</div><div class="doc-meta">Algorithms, Flowcharts, Debugging</div></div><div class="doc-arrow">→</div></a>
+
  </div>
  </div>
  <div class="sub-section">
  <div class="sub-header">📁 Grade 10 — Term 1</div>
  <div class="doc-grid">
- <div class="doc-link coming-soon"><div class="doc-icon html">HTML</div><div class="doc-info"><div class="doc-name">Course Overview</div><div class="doc-meta">Year 10 S1 • Syllabus</div></div><div class="doc-arrow">→</div></div>
- <a class="doc-link" href="https://raw.githubusercontent.com/Skits2707/igcse-Alevel-IBDP-cs-ict-curriculum/main/IGCSE_Computer_Science/Year_10_Semester_1/Weeks_1-9_Consolidation.html"><div class="doc-icon html">HTML</div><div class="doc-info"><div class="doc-name">Week1-9Week：ConsolidationReview</div><div class="doc-meta">Year 9Content Review and Deepening</div></div><div class="doc-arrow">→</div></a>
- <a class="doc-link" href="https://raw.githubusercontent.com/Skits2707/igcse-Alevel-IBDP-cs-ict-curriculum/main/IGCSE_Computer_Science/Year_10_Semester_1/Weeks_10-18_Exam_Preparation.html"><div class="doc-icon html">HTML</div><div class="doc-info"><div class="doc-name">Week10-18Week：ExamPreparation</div><div class="doc-meta">Exam Paper Techniques、Mock Exam</div></div><div class="doc-arrow">→</div></a>
- 
+ <a class="doc-link" href="https://raw.githubusercontent.com/Skits2707/igcse-Alevel-IBDP-cs-ict-curriculum/main/IGCSE_Computer_Science/Year_10_Semester_1/Course%20Overview.pdf"><div class="doc-icon pdf">PDF</div><div class="doc-info"><div class="doc-name">Course Overview</div><div class="doc-meta">Year 10 S1 • Syllabus</div></div><div class="doc-arrow">→</div></a>
+ <a class="doc-link" href="https://raw.githubusercontent.com/Skits2707/igcse-Alevel-IBDP-cs-ict-curriculum/main/IGCSE_Computer_Science/Year_10_Semester_1/Weeks%201-9%20Consolidation.pdf"><div class="doc-icon pdf">PDF</div><div class="doc-info"><div class="doc-name">Weeks 1-9: ConsolidationReview</div><div class="doc-meta">Year 9Content Review and Deepening</div></div><div class="doc-arrow">→</div></a>
+ <a class="doc-link" href="https://raw.githubusercontent.com/Skits2707/igcse-Alevel-IBDP-cs-ict-curriculum/main/IGCSE_Computer_Science/Year_10_Semester_1/Weeks%2010-18%20Exam%20Preparation.pdf"><div class="doc-icon pdf">PDF</div><div class="doc-info"><div class="doc-name">Weeks 10-18: ExamPreparation</div><div class="doc-meta">Exam Paper Techniques, Mock Exam</div></div><div class="doc-arrow">→</div></a>
+
  </div>
  </div>
  <div class="sub-section">
  <div class="sub-header">📁 Grade 10 — Term 2</div>
  <div class="doc-grid">
- <div class="doc-link coming-soon"><div class="doc-icon html">HTML</div><div class="doc-info"><div class="doc-name">Course Overview</div><div class="doc-meta">Year 10 S2 • Syllabus</div></div><div class="doc-arrow">→</div></div>
- <a class="doc-link" href="https://raw.githubusercontent.com/Skits2707/igcse-Alevel-IBDP-cs-ict-curriculum/main/IGCSE_Computer_Science/Year_10_Semester_2/Weeks_1-9_Final_Revision.html"><div class="doc-icon html">HTML</div><div class="doc-info"><div class="doc-name">Week1-9Week：Final Review</div><div class="doc-meta">Comprehensive Review and Gap Analysis</div></div><div class="doc-arrow">→</div></a>
- <a class="doc-link" href="https://raw.githubusercontent.com/Skits2707/igcse-Alevel-IBDP-cs-ict-curriculum/main/IGCSE_Computer_Science/Year_10_Semester_2/Weeks_10-18_Mock_Exams.html"><div class="doc-icon html">HTML</div><div class="doc-info"><div class="doc-name">Week10-18Week：Mock Exam</div><div class="doc-meta">5timesMock ExamandGap Analysis</div></div><div class="doc-arrow">→</div></a>
- 
+ <a class="doc-link" href="https://raw.githubusercontent.com/Skits2707/igcse-Alevel-IBDP-cs-ict-curriculum/main/IGCSE_Computer_Science/Year_10_Semester_2/Course%20Overview.pdf"><div class="doc-icon pdf">PDF</div><div class="doc-info"><div class="doc-name">Course Overview</div><div class="doc-meta">Year 10 S2 • Syllabus</div></div><div class="doc-arrow">→</div></a>
+ <a class="doc-link" href="https://raw.githubusercontent.com/Skits2707/igcse-Alevel-IBDP-cs-ict-curriculum/main/IGCSE_Computer_Science/Year_10_Semester_2/Weeks%201-9%20Final%20Revision.pdf"><div class="doc-icon pdf">PDF</div><div class="doc-info"><div class="doc-name">Weeks 1-9: Final Review</div><div class="doc-meta">Comprehensive Review and Gap Analysis</div></div><div class="doc-arrow">→</div></a>
+ <a class="doc-link" href="https://raw.githubusercontent.com/Skits2707/igcse-Alevel-IBDP-cs-ict-curriculum/main/IGCSE_Computer_Science/Year_10_Semester_2/Weeks%2010-18%20Mock%20Exams.pdf"><div class="doc-icon pdf">PDF</div><div class="doc-info"><div class="doc-name">Weeks 10-18: Mock Exam</div><div class="doc-meta">5timesMock ExamandGap Analysis</div></div><div class="doc-arrow">→</div></a>
+
  </div>
  </div>
  </div>
@@ -1732,7 +1741,7 @@ footer p{
  <button class="programme-header" onclick="toggleProgramme('ict-program')" aria-expanded="true">
  <div class="prog-icon" style="width:48px;height:48px;font-size:1.4rem">📱</div>
  <div style="flex:1">
- <h3>ICT CurriculumPrograms（2Grade → IGCSE ICT 0417）</h3>
+ <h3>ICT CurriculumPrograms (2Grade → IGCSE ICT 0417) </h3>
  <span class="syllabus">CambridgeIGCSE ICT + Common Core • From Primary toIGCSEProgressiveICT • 23DocumentsDocuments</span>
  </div>
  <div class="programme-toggle">▼</div>
@@ -1742,40 +1751,66 @@ footer p{
  <div class="sub-header">📁 2-3Grade</div>
  <div class="doc-grid">
  <a class="doc-link" href="https://raw.githubusercontent.com/Skits2707/igcse-Alevel-IBDP-cs-ict-curriculum/main/ICT_Program/Grades_2-3/Course_Overview.html"><div class="doc-icon html">HTML</div><div class="doc-info"><div class="doc-name">Course Overview</div><div class="doc-meta">Grades 2-3 • Syllabus</div></div><div class="doc-arrow">→</div></a>
- <a class="doc-link" href="https://raw.githubusercontent.com/Skits2707/igcse-Alevel-IBDP-cs-ict-curriculum/main/ICT_Program/Grades_2-3/Term_1_Digital_Basics.html"><div class="doc-icon html">HTML</div><div class="doc-info"><div class="doc-name">Term 1：Digital Basics</div><div class="doc-meta">Keyboard、Mouse、Basic Operations</div></div><div class="doc-arrow">→</div></a>
- <a class="doc-link" href="https://raw.githubusercontent.com/Skits2707/igcse-Alevel-IBDP-cs-ict-curriculum/main/ICT_Program/Grades_2-3/Term_2_Digital_Creation.html"><div class="doc-icon html">HTML</div><div class="doc-info"><div class="doc-name">Term 2：Digital Creation</div><div class="doc-meta">Drawing、Stories、Simple Multimedia</div></div><div class="doc-arrow">→</div></a>
- 
- 
+ <a class="doc-link" href="https://raw.githubusercontent.com/Skits2707/igcse-Alevel-IBDP-cs-ict-curriculum/main/ICT_Program/Grades_2-3/Term_1_Digital_Basics.html"><div class="doc-icon html">HTML</div><div class="doc-info"><div class="doc-name">Term 1：Digital Foundations</div><div class="doc-meta">Keyboard, Mouse, Basic Operations</div></div><div class="doc-arrow">→</div></a>
+ <a class="doc-link" href="https://raw.githubusercontent.com/Skits2707/igcse-Alevel-IBDP-cs-ict-curriculum/main/ICT_Program/Grades_2-3/Term_2_Digital_Creation.html"><div class="doc-icon html">HTML</div><div class="doc-info"><div class="doc-name">Term 2：Digital Creation</div><div class="doc-meta">Drawing, Story, Simple Multimedia</div></div><div class="doc-arrow">→</div></a>
+
+
  </div>
  </div>
  <div class="sub-section">
  <div class="sub-header">📁 4-5Grade</div>
  <div class="doc-grid">
  <a class="doc-link" href="https://raw.githubusercontent.com/Skits2707/igcse-Alevel-IBDP-cs-ict-curriculum/main/ICT_Program/Grades_4-5/Course_Overview.html"><div class="doc-icon html">HTML</div><div class="doc-info"><div class="doc-name">Course Overview</div><div class="doc-meta">Grades 4-5 • Syllabus</div></div><div class="doc-arrow">→</div></a>
- <a class="doc-link" href="https://raw.githubusercontent.com/Skits2707/igcse-Alevel-IBDP-cs-ict-curriculum/main/ICT_Program/Grades_4-5/Term_1_Productivity_Tools.html"><div class="doc-icon html">HTML</div><div class="doc-info"><div class="doc-name">Term 1：Productivity Tools</div><div class="doc-meta">Word、Basic Word Processing</div></div><div class="doc-arrow">→</div></a>
- <a class="doc-link" href="https://raw.githubusercontent.com/Skits2707/igcse-Alevel-IBDP-cs-ict-curriculum/main/ICT_Program/Grades_4-5/Term_2_Spreadsheets_Presentations.html"><div class="doc-icon html">HTML</div><div class="doc-info"><div class="doc-name">Term 2：Spreadsheets andPresentations</div><div class="doc-meta">Excel、PowerPoint Basics</div></div><div class="doc-arrow">→</div></a>
- 
- 
+ <a class="doc-link" href="https://raw.githubusercontent.com/Skits2707/igcse-Alevel-IBDP-cs-ict-curriculum/main/ICT_Program/Grades_4-5/Term_1_Productivity_Tools.html"><div class="doc-icon html">HTML</div><div class="doc-info"><div class="doc-name">Term 1：Productivity Tools</div><div class="doc-meta">Word, Word Processing Basics</div></div><div class="doc-arrow">→</div></a>
+ <a class="doc-link" href="https://raw.githubusercontent.com/Skits2707/igcse-Alevel-IBDP-cs-ict-curriculum/main/ICT_Program/Grades_4-5/Term_2_Spreadsheets_Presentations.html"><div class="doc-icon html">HTML</div><div class="doc-info"><div class="doc-name">Term 2：SpreadsheetsandPresentation</div><div class="doc-meta">Excel, PowerPointFoundation</div></div><div class="doc-arrow">→</div></a>
+
+
  </div>
  </div>
  <div class="sub-section">
  <div class="sub-header">📁 6-8Grade</div>
  <div class="doc-grid">
  <a class="doc-link" href="https://raw.githubusercontent.com/Skits2707/igcse-Alevel-IBDP-cs-ict-curriculum/main/ICT_Program/Grades_6-8/Course_Overview.html"><div class="doc-icon html">HTML</div><div class="doc-info"><div class="doc-name">Course Overview</div><div class="doc-meta">Grades 6-8 • Syllabus</div></div><div class="doc-arrow">→</div></a>
- <a class="doc-link" href="https://raw.githubusercontent.com/Skits2707/igcse-Alevel-IBDP-cs-ict-curriculum/main/ICT_Program/Grades_6-8/Year_6_Advanced_Productivity.html"><div class="doc-icon html">HTML</div><div class="doc-info"><div class="doc-name">Year 6：Advanced Productivity</div><div class="doc-meta">Advanced Word、Excel、PowerPoint</div></div><div class="doc-arrow">→</div></a>
- <a class="doc-link" href="https://raw.githubusercontent.com/Skits2707/igcse-Alevel-IBDP-cs-ict-curriculum/main/ICT_Program/Grades_6-8/Year_7_Web_Design.html"><div class="doc-icon html">HTML</div><div class="doc-info"><div class="doc-name">Year 7：Web Design</div><div class="doc-meta">HTML、CSS、Web Basics</div></div><div class="doc-arrow">→</div></a>
- <a class="doc-link" href="https://raw.githubusercontent.com/Skits2707/igcse-Alevel-IBDP-cs-ict-curriculum/main/ICT_Program/Grades_6-8/Year_8_Databases.html"><div class="doc-icon html">HTML</div><div class="doc-info"><div class="doc-name">Year 8：Databases</div><div class="doc-meta">Access、SQL、Data Management</div></div><div class="doc-arrow">→</div></a>
- 
+ <a class="doc-link" href="https://raw.githubusercontent.com/Skits2707/igcse-Alevel-IBDP-cs-ict-curriculum/main/ICT_Program/Grades_6-8/Year_6_Advanced_Productivity.html"><div class="doc-icon html">HTML</div><div class="doc-info"><div class="doc-name">Grade 6：AdvancedProductivity</div><div class="doc-meta">AdvancedWord, Collaboration Tools</div></div><div class="doc-arrow">→</div></a>
+ <a class="doc-link" href="https://raw.githubusercontent.com/Skits2707/igcse-Alevel-IBDP-cs-ict-curriculum/main/ICT_Program/Grades_6-8/Year_7_Programming_Databases.html"><div class="doc-icon html">HTML</div><div class="doc-info"><div class="doc-name">Grade 7：ProgrammingandDatabases</div><div class="doc-meta">Scratch, AccessFoundation</div></div><div class="doc-arrow">→</div></a>
+ <a class="doc-link" href="https://raw.githubusercontent.com/Skits2707/igcse-Alevel-IBDP-cs-ict-curriculum/main/ICT_Program/Grades_6-8/Year_8_Cybersecurity_Robotics.html"><div class="doc-icon html">HTML</div><div class="doc-info"><div class="doc-name">Grade 8：Network SecurityandRobotics</div><div class="doc-meta">Security, Robotics, Internet of Things</div></div><div class="doc-arrow">→</div></a>
+
  </div>
  </div>
  <div class="sub-section">
- <div class="sub-header">📁 IGCSE ICT 0417</div>
+ <div class="sub-header">📁 IGCSE ICT Grade 9</div>
  <div class="doc-grid">
- <a class="doc-link" href="https://raw.githubusercontent.com/Skits2707/igcse-Alevel-IBDP-cs-ict-curriculum/main/ICT_Program/IGCSE_ICT_0417/Course_Overview.html"><div class="doc-icon html">HTML</div><div class="doc-info"><div class="doc-name">Course Overview</div><div class="doc-meta">IGCSE ICT • Syllabus</div></div><div class="doc-arrow">→</div></a>
- <a class="doc-link" href="https://raw.githubusercontent.com/Skits2707/igcse-Alevel-IBDP-cs-ict-curriculum/main/ICT_Program/IGCSE_ICT_0417/Theory_Paper_1_Review.html"><div class="doc-icon html">HTML</div><div class="doc-info"><div class="doc-name">Theory Exam Paper 1Review</div><div class="doc-meta">All Theory Topics</div></div><div class="doc-arrow">→</div></a>
- <a class="doc-link" href="https://raw.githubusercontent.com/Skits2707/igcse-Alevel-IBDP-cs-ict-curriculum/main/ICT_Program/IGCSE_ICT_0417/Practical_Paper_2_Review.html"><div class="doc-icon html">HTML</div><div class="doc-info"><div class="doc-name">Practical Exam Paper 2Review</div><div class="doc-meta">Document Processing、Spreadsheets</div></div><div class="doc-arrow">→</div></a>
- <a class="doc-link" href="https://raw.githubusercontent.com/Skits2707/igcse-Alevel-IBDP-cs-ict-curriculum/main/ICT_Program/IGCSE_ICT_0417/Practical_Paper_3_Review.html"><div class="doc-icon html">HTML</div><div class="doc-info"><div class="doc-name">Practical Exam Paper 3Review</div><div class="doc-meta">Web Design、Presentations</div></div><div class="doc-arrow">→</div></a>
- 
+ <a class="doc-link" href="https://raw.githubusercontent.com/Skits2707/igcse-Alevel-IBDP-cs-ict-curriculum/main/ICT_Program/IGCSE_ICT/Year_9_Semester_1/Course_Overview.html"><div class="doc-icon html">HTML</div><div class="doc-info"><div class="doc-name">Course Overview</div><div class="doc-meta">Year 9 S1 • Syllabus</div></div><div class="doc-arrow">→</div></a>
+ <a class="doc-link" href="https://raw.githubusercontent.com/Skits2707/igcse-Alevel-IBDP-cs-ict-curriculum/main/ICT_Program/IGCSE_ICT/Year_9_Semester_1/Weeks_1-9_Computer_Systems_Networks.html"><div class="doc-icon html">HTML</div><div class="doc-info"><div class="doc-name">Weeks 1-9: Computer Systems and Networks</div><div class="doc-meta">Hardware, Software, NetworksFoundation</div></div><div class="doc-arrow">→</div></a>
+ <a class="doc-link" href="https://raw.githubusercontent.com/Skits2707/igcse-Alevel-IBDP-cs-ict-curriculum/main/ICT_Program/IGCSE_ICT/Year_9_Semester_1/Weeks_10-18_Data_Types_Effects_Security.html"><div class="doc-icon html">HTML</div><div class="doc-info"><div class="doc-name">Weeks 10-18: Data Types and Effects</div><div class="doc-meta">Data Security, Effects and Applications</div></div><div class="doc-arrow">→</div></a>
+
+ <a class="doc-link" href="https://raw.githubusercontent.com/Skits2707/igcse-Alevel-IBDP-cs-ict-curriculum/main/ICT_Program/IGCSE_ICT/Year_9_Semester_2/Course_Overview.html"><div class="doc-icon html">HTML</div><div class="doc-info"><div class="doc-name">Course Overview</div><div class="doc-meta">Year 9 S2 • Syllabus</div></div><div class="doc-arrow">→</div></a>
+ <a class="doc-link" href="https://raw.githubusercontent.com/Skits2707/igcse-Alevel-IBDP-cs-ict-curriculum/main/ICT_Program/IGCSE_ICT/Year_9_Semester_2/Weeks_1-9_Document_Production.html"><div class="doc-icon html">HTML</div><div class="doc-info"><div class="doc-name">Weeks 1-9: DocumentsCreating</div><div class="doc-meta">AdvancedDocuments, Mail Merge</div></div><div class="doc-arrow">→</div></a>
+ <a class="doc-link" href="https://raw.githubusercontent.com/Skits2707/igcse-Alevel-IBDP-cs-ict-curriculum/main/ICT_Program/IGCSE_ICT/Year_9_Semester_2/Weeks_10-18_Data_Manipulation_Presentations.html"><div class="doc-icon html">HTML</div><div class="doc-info"><div class="doc-name">Weeks 10-18: Data Manipulation and Presentation</div><div class="doc-meta">Spreadsheets, Presentations</div></div><div class="doc-arrow">→</div></a>
+
+ </div>
+ </div>
+ <div class="sub-section">
+ <div class="sub-header">📁 IGCSE ICT Grade 10</div>
+ <div class="doc-grid">
+ <a class="doc-link" href="https://raw.githubusercontent.com/Skits2707/igcse-Alevel-IBDP-cs-ict-curriculum/main/ICT_Program/IGCSE_ICT/Year_10_Semester_1/Course_Overview.html"><div class="doc-icon html">HTML</div><div class="doc-info"><div class="doc-name">Course Overview</div><div class="doc-meta">Year 10 S1 • Syllabus</div></div><div class="doc-arrow">→</div></a>
+ <a class="doc-link" href="https://raw.githubusercontent.com/Skits2707/igcse-Alevel-IBDP-cs-ict-curriculum/main/ICT_Program/IGCSE_ICT/Year_10_Semester_1/Weeks_1-9_Data_Analysis_Web_Authoring.html"><div class="doc-icon html">HTML</div><div class="doc-info"><div class="doc-name">Weeks 1-9: Data Analysis and Web Creation</div><div class="doc-meta">Databases, HTML/CSS</div></div><div class="doc-arrow">→</div></a>
+ <a class="doc-link" href="https://raw.githubusercontent.com/Skits2707/igcse-Alevel-IBDP-cs-ict-curriculum/main/ICT_Program/IGCSE_ICT/Year_10_Semester_1/Weeks_10-18_Databases_Revision.html"><div class="doc-icon html">HTML</div><div class="doc-info"><div class="doc-name">Weeks 10-18: Databases and Review</div><div class="doc-meta">Access, SQL, Review</div></div><div class="doc-arrow">→</div></a>
+
+ <a class="doc-link" href="https://raw.githubusercontent.com/Skits2707/igcse-Alevel-IBDP-cs-ict-curriculum/main/ICT_Program/IGCSE_ICT/Year_10_Semester_2/Course_Overview.html"><div class="doc-icon html">HTML</div><div class="doc-info"><div class="doc-name">Course Overview</div><div class="doc-meta">Year 10 S2 • Syllabus</div></div><div class="doc-arrow">→</div></a>
+ <a class="doc-link" href="https://raw.githubusercontent.com/Skits2707/igcse-Alevel-IBDP-cs-ict-curriculum/main/ICT_Program/IGCSE_ICT/Year_10_Semester_2/Weeks_1-9_Consolidation_Practice.html"><div class="doc-icon html">HTML</div><div class="doc-info"><div class="doc-name">Weeks 1-9: Consolidation Practice</div><div class="doc-meta">Skills Integration, Programs</div></div><div class="doc-arrow">→</div></a>
+ <a class="doc-link" href="https://raw.githubusercontent.com/Skits2707/igcse-Alevel-IBDP-cs-ict-curriculum/main/ICT_Program/IGCSE_ICT/Year_10_Semester_2/Weeks_10-18_Mock_Exams_Final_Prep.html"><div class="doc-icon html">HTML</div><div class="doc-info"><div class="doc-name">Weeks 10-18: Mock Exam</div><div class="doc-meta">Mock Exam, Final Preparation</div></div><div class="doc-arrow">→</div></a>
+
+ </div>
+ </div>
+ <div class="sub-section">
+ <div class="sub-header">📁 SupportDocuments</div>
+ <div class="doc-grid">
+ <a class="doc-link" href="https://raw.githubusercontent.com/Skits2707/igcse-Alevel-IBDP-cs-ict-curriculum/main/ICT_Program/Supporting_Documents/Bilingual_Glossary_200_Terms.html"><div class="doc-icon html">HTML</div><div class="doc-info"><div class="doc-name">BilingualGlossary (200Terminology) </div><div class="doc-meta">English/Chinese/Pinyincomparison</div></div><div class="doc-arrow">→</div></a>
+ <a class="doc-link" href="https://raw.githubusercontent.com/Skits2707/igcse-Alevel-IBDP-cs-ict-curriculum/main/ICT_Program/Supporting_Documents/Common_Core_Standards_Mapping.html"><div class="doc-icon html">HTML</div><div class="doc-info"><div class="doc-name">Common CoreStandards Mapping</div><div class="doc-meta">Standards AlignmentDocuments</div></div><div class="doc-arrow">→</div></a>
+ <a class="doc-link" href="https://raw.githubusercontent.com/Skits2707/igcse-Alevel-IBDP-cs-ict-curriculum/main/ICT_Program/Supporting_Documents/Digital_Citizenship_Framework.html"><div class="doc-icon html">HTML</div><div class="doc-info"><div class="doc-name">Digital CitizenshipLiteracyFramework</div><div class="doc-meta">Security, Ethics, Responsibility</div></div><div class="doc-arrow">→</div></a>
+
+
  </div>
  </div>
  </div>
@@ -1787,34 +1822,54 @@ footer p{
  <div class="prog-icon" style="width:48px;height:48px;font-size:1.4rem">🎓</div>
  <div style="flex:1">
  <h3>A-Level Computer Science (9618)</h3>
- <span class="syllabus">Cambridge International EducationAssessment • Grades 11-12 • 16DocumentsDocuments</span>
+ <span class="syllabus">Cambridge InternationalA-Level • AS (Grade 11) & A2 (Grade 12) • 18DocumentsDocuments</span>
  </div>
  <div class="programme-toggle">▼</div>
  </button>
  <div class="programme-body">
  <div class="sub-section">
- <div class="sub-header">📁 AS Level</div>
+ <div class="sub-header">📁 AS Level — Term 1</div>
  <div class="doc-grid">
- <a class="doc-link" href="https://raw.githubusercontent.com/Skits2707/igcse-Alevel-IBDP-cs-ict-curriculum/main/A_Level_Computer_Science/AS_Level/Course_Overview.html"><div class="doc-icon html">HTML</div><div class="doc-info"><div class="doc-name">Course Overview</div><div class="doc-meta">AS Level • Syllabus</div></div><div class="doc-arrow">→</div></a>
- <a class="doc-link" href="https://raw.githubusercontent.com/Skits2707/igcse-Alevel-IBDP-cs-ict-curriculum/main/A_Level_Computer_Science/AS_Level/Information_Representation.html"><div class="doc-icon html">HTML</div><div class="doc-info"><div class="doc-name">Information Representation</div><div class="doc-meta">Binary、Hexadecimal、Floating Point</div></div><div class="doc-arrow">→</div></a>
- <a class="doc-link" href="https://raw.githubusercontent.com/Skits2707/igcse-Alevel-IBDP-cs-ict-curriculum/main/A_Level_Computer_Science/AS_Level/Hardware_and_Virtual_Machines.html"><div class="doc-icon html">HTML</div><div class="doc-info"><div class="doc-name">Hardware andVirtual Machines</div><div class="doc-meta">CPU、Memory、Virtualization</div></div><div class="doc-arrow">→</div></a>
- <a class="doc-link" href="https://raw.githubusercontent.com/Skits2707/igcse-Alevel-IBDP-cs-ict-curriculum/main/A_Level_Computer_Science/AS_Level/System_Software.html"><div class="doc-icon html">HTML</div><div class="doc-info"><div class="doc-name">System Software</div><div class="doc-meta">OS、Compilers、Interpreters</div></div><div class="doc-arrow">→</div></a>
- <a class="doc-link" href="https://raw.githubusercontent.com/Skits2707/igcse-Alevel-IBDP-cs-ict-curriculum/main/A_Level_Computer_Science/AS_Level/Security_Privacy_Data_Integrity.html"><div class="doc-icon html">HTML</div><div class="doc-info"><div class="doc-name">Security、PrivacyandData Integrity</div><div class="doc-meta">Encryption、Authentication、GDPR</div></div><div class="doc-arrow">→</div></a>
- <a class="doc-link" href="https://raw.githubusercontent.com/Skits2707/igcse-Alevel-IBDP-cs-ict-curriculum/main/A_Level_Computer_Science/AS_Level/Ethics_and_Ownership.html"><div class="doc-icon html">HTML</div><div class="doc-info"><div class="doc-name">Ethics andOwnership</div><div class="doc-meta">Copyright、Open Source、AI Ethics</div></div><div class="doc-arrow">→</div></a>
- <a class="doc-link" href="https://raw.githubusercontent.com/Skits2707/igcse-Alevel-IBDP-cs-ict-curriculum/main/A_Level_Computer_Science/AS_Level/Databases_SQL.html"><div class="doc-icon html">HTML</div><div class="doc-info"><div class="doc-name">Databases andSQL</div><div class="doc-meta">Relational Databases、SQL Queries</div></div><div class="doc-arrow">→</div></a>
- <a class="doc-link" href="https://raw.githubusercontent.com/Skits2707/igcse-Alevel-IBDP-cs-ict-curriculum/main/A_Level_Computer_Science/AS_Level/Algorithm_Design.html"><div class="doc-icon html">HTML</div><div class="doc-info"><div class="doc-name">Algorithm Design</div><div class="doc-meta">Pseudocode、Flowcharts、Efficiency</div></div><div class="doc-arrow">→</div></a>
- <a class="doc-link" href="https://raw.githubusercontent.com/Skits2707/igcse-Alevel-IBDP-cs-ict-curriculum/main/A_Level_Computer_Science/AS_Level/Data_Structures_Programming.html"><div class="doc-icon html">HTML</div><div class="doc-info"><div class="doc-name">Data Structures andProgramming</div><div class="doc-meta">Arrays、Lists、OOP in Python</div></div><div class="doc-arrow">→</div></a>
- 
+ <a class="doc-link" href="https://raw.githubusercontent.com/Skits2707/igcse-Alevel-IBDP-cs-ict-curriculum/main/A_Level_Computer_Science/AS_Level/Semester_1/Course_Overview.html"><div class="doc-icon html">HTML</div><div class="doc-info"><div class="doc-name">Course Overview</div><div class="doc-meta">AS S1 • Syllabus</div></div><div class="doc-arrow">→</div></a>
+ <a class="doc-link" href="https://raw.githubusercontent.com/Skits2707/igcse-Alevel-IBDP-cs-ict-curriculum/main/A_Level_Computer_Science/AS_Level/Semester_1/Weeks_1-9_Information_Representation_Communication.html"><div class="doc-icon html">HTML</div><div class="doc-info"><div class="doc-name">Weeks 1-9: Information Representation and Communication</div><div class="doc-meta">Data Representation, Transmission, Compression</div></div><div class="doc-arrow">→</div></a>
+ <a class="doc-link" href="https://raw.githubusercontent.com/Skits2707/igcse-Alevel-IBDP-cs-ict-curriculum/main/A_Level_Computer_Science/AS_Level/Semester_1/Weeks_10-18_Hardware_System_Software_Security.html"><div class="doc-icon html">HTML</div><div class="doc-info"><div class="doc-name">Weeks 10-18: Hardware and System Software</div><div class="doc-meta">Processor, OS, Security</div></div><div class="doc-arrow">→</div></a>
+ <a class="doc-link" href="https://raw.githubusercontent.com/Skits2707/igcse-Alevel-IBDP-cs-ict-curriculum/main/A_Level_Computer_Science/AS_Level/Semester_1/Assessment_Pack.html"><div class="doc-icon html">HTML</div><div class="doc-info"><div class="doc-name">Assessment Pack</div><div class="doc-meta">FormativeAssessment</div></div><div class="doc-arrow">→</div></a>
  </div>
  </div>
  <div class="sub-section">
- <div class="sub-header">📁 A2 Level</div>
+ <div class="sub-header">📁 AS Level — Term 2</div>
  <div class="doc-grid">
- <a class="doc-link" href="https://raw.githubusercontent.com/Skits2707/igcse-Alevel-IBDP-cs-ict-curriculum/main/A_Level_Computer_Science/A2_Level/Course_Overview.html"><div class="doc-icon html">HTML</div><div class="doc-info"><div class="doc-name">Course Overview</div><div class="doc-meta">A2 Level • Syllabus</div></div><div class="doc-arrow">→</div></a>
- <a class="doc-link" href="https://raw.githubusercontent.com/Skits2707/igcse-Alevel-IBDP-cs-ict-curriculum/main/A_Level_Computer_Science/A2_Level/Computational_Thinking.html"><div class="doc-icon html">HTML</div><div class="doc-info"><div class="doc-name">Computational Thinking</div><div class="doc-meta">Abstraction、Decomposition、Pattern Recognition</div></div><div class="doc-arrow">→</div></a>
- <a class="doc-link" href="https://raw.githubusercontent.com/Skits2707/igcse-Alevel-IBDP-cs-ict-curriculum/main/A_Level_Computer_Science/A2_Level/Further_Programming.html"><div class="doc-icon html">HTML</div><div class="doc-info"><div class="doc-name">Further Programming</div><div class="doc-meta">Recursion、File Handling、OOP</div></div><div class="doc-arrow">→</div></a>
- <a class="doc-link" href="https://raw.githubusercontent.com/Skits2707/igcse-Alevel-IBDP-cs-ict-curriculum/main/A_Level_Computer_Science/A2_Level/Programming_Project_Guide.html"><div class="doc-icon html">HTML</div><div class="doc-info"><div class="doc-name">Programming Project Guide</div><div class="doc-meta">NEA-Style Project</div></div><div class="doc-arrow">→</div></a>
- 
+ <a class="doc-link" href="https://raw.githubusercontent.com/Skits2707/igcse-Alevel-IBDP-cs-ict-curriculum/main/A_Level_Computer_Science/AS_Level/Semester_2/Course_Overview.html"><div class="doc-icon html">HTML</div><div class="doc-info"><div class="doc-name">Course Overview</div><div class="doc-meta">AS S2 • Syllabus</div></div><div class="doc-arrow">→</div></a>
+ <a class="doc-link" href="https://raw.githubusercontent.com/Skits2707/igcse-Alevel-IBDP-cs-ict-curriculum/main/A_Level_Computer_Science/AS_Level/Semester_2/Weeks_1-9_Programming_Fundamentals.html"><div class="doc-icon html">HTML</div><div class="doc-info"><div class="doc-name">Weeks 1-9: Programming Fundamentals</div><div class="doc-meta">Python, Data Structures, OOP</div></div><div class="doc-arrow">→</div></a>
+ <a class="doc-link" href="https://raw.githubusercontent.com/Skits2707/igcse-Alevel-IBDP-cs-ict-curriculum/main/A_Level_Computer_Science/AS_Level/Semester_2/Assessment_Pack.html"><div class="doc-icon html">HTML</div><div class="doc-info"><div class="doc-name">Assessment Pack</div><div class="doc-meta">FormativeAssessment</div></div><div class="doc-arrow">→</div></a>
+ </div>
+ </div>
+ <div class="sub-section">
+ <div class="sub-header">📁 A2 Level — Term 1</div>
+ <div class="doc-grid">
+ <a class="doc-link" href="https://raw.githubusercontent.com/Skits2707/igcse-Alevel-IBDP-cs-ict-curriculum/main/A_Level_Computer_Science/A2_Level/Semester_1/Course_Overview.html"><div class="doc-icon html">HTML</div><div class="doc-info"><div class="doc-name">Course Overview</div><div class="doc-meta">A2 S1 • Syllabus</div></div><div class="doc-arrow">→</div></a>
+ <a class="doc-link" href="https://raw.githubusercontent.com/Skits2707/igcse-Alevel-IBDP-cs-ict-curriculum/main/A_Level_Computer_Science/A2_Level/Semester_1/Weeks_1-9_Advanced_Data_Communication.html"><div class="doc-icon html">HTML</div><div class="doc-info"><div class="doc-name">Weeks 1-9: Advanced Data Communications</div><div class="doc-meta">Network Protocols, Encryption, Internet</div></div><div class="doc-arrow">→</div></a>
+ <a class="doc-link" href="https://raw.githubusercontent.com/Skits2707/igcse-Alevel-IBDP-cs-ict-curriculum/main/A_Level_Computer_Science/A2_Level/Semester_1/Weeks_10-18_Hardware_System_Software_AI.html"><div class="doc-icon html">HTML</div><div class="doc-info"><div class="doc-name">Weeks 10-18: Hardware andAI</div><div class="doc-meta">Boolean Logic, AI, Robotics</div></div><div class="doc-arrow">→</div></a>
+ <a class="doc-link" href="https://raw.githubusercontent.com/Skits2707/igcse-Alevel-IBDP-cs-ict-curriculum/main/A_Level_Computer_Science/A2_Level/Semester_1/Assessment_Pack.html"><div class="doc-icon html">HTML</div><div class="doc-info"><div class="doc-name">Assessment Pack</div><div class="doc-meta">FormativeAssessment</div></div><div class="doc-arrow">→</div></a>
+ </div>
+ </div>
+ <div class="sub-section">
+ <div class="sub-header">📁 A2 Level — Term 2</div>
+ <div class="doc-grid">
+ <a class="doc-link" href="https://raw.githubusercontent.com/Skits2707/igcse-Alevel-IBDP-cs-ict-curriculum/main/A_Level_Computer_Science/A2_Level/Semester_2/Course_Overview.html"><div class="doc-icon html">HTML</div><div class="doc-info"><div class="doc-name">Course Overview</div><div class="doc-meta">A2 S2 • Syllabus</div></div><div class="doc-arrow">→</div></a>
+ <a class="doc-link" href="https://raw.githubusercontent.com/Skits2707/igcse-Alevel-IBDP-cs-ict-curriculum/main/A_Level_Computer_Science/A2_Level/Semester_2/Weeks_1-9_Practical_Programming_Project.html"><div class="doc-icon html">HTML</div><div class="doc-info"><div class="doc-name">Weeks 1-9: Programming Project</div><div class="doc-meta">NEAStyle Project Development</div></div><div class="doc-arrow">→</div></a>
+ <a class="doc-link" href="https://raw.githubusercontent.com/Skits2707/igcse-Alevel-IBDP-cs-ict-curriculum/main/A_Level_Computer_Science/A2_Level/Semester_2/Weeks_10-18_Revision_Final_Exams.html"><div class="doc-icon html">HTML</div><div class="doc-info"><div class="doc-name">Weeks 10-18: Review and Exam</div><div class="doc-meta">Final Review, Mock Exam</div></div><div class="doc-arrow">→</div></a>
+ <a class="doc-link" href="https://raw.githubusercontent.com/Skits2707/igcse-Alevel-IBDP-cs-ict-curriculum/main/A_Level_Computer_Science/A2_Level/Semester_2/Assessment_Pack.html"><div class="doc-icon html">HTML</div><div class="doc-info"><div class="doc-name">Assessment Pack</div><div class="doc-meta">FormativeAssessment</div></div><div class="doc-arrow">→</div></a>
+ </div>
+ </div>
+ <div class="sub-section">
+ <div class="sub-header">📁 SupportDocuments</div>
+ <div class="doc-grid">
+ <a class="doc-link" href="https://raw.githubusercontent.com/Skits2707/igcse-Alevel-IBDP-cs-ict-curriculum/main/A_Level_Computer_Science/Supporting_Documents/Enrichment_Programme.html"><div class="doc-icon html">HTML</div><div class="doc-info"><div class="doc-name">Extended Project</div><div class="doc-meta">Competition, Club, Extra Challenges</div></div><div class="doc-arrow">→</div></a>
+ <a class="doc-link" href="https://raw.githubusercontent.com/Skits2707/igcse-Alevel-IBDP-cs-ict-curriculum/main/A_Level_Computer_Science/Supporting_Documents/IGCSE_to_A_Level_Bridge_Document.html"><div class="doc-icon html">HTML</div><div class="doc-info"><div class="doc-name">IGCSEtoA-LevelBridging</div><div class="doc-meta">Skills Gap Analysis and Transition</div></div><div class="doc-arrow">→</div></a>
+ <a class="doc-link" href="https://raw.githubusercontent.com/Skits2707/igcse-Alevel-IBDP-cs-ict-curriculum/main/A_Level_Computer_Science/Supporting_Documents/Intervention_Protocol.html"><div class="doc-icon html">HTML</div><div class="doc-info"><div class="doc-name">Intervention Protocol</div><div class="doc-meta">Support StrategiesandAction Plan</div></div><div class="doc-arrow">→</div></a>
+ <a class="doc-link" href="https://raw.githubusercontent.com/Skits2707/igcse-Alevel-IBDP-cs-ict-curriculum/main/A_Level_Computer_Science/Supporting_Documents/Predicted_Outcomes_and_Progression.html"><div class="doc-icon html">HTML</div><div class="doc-info"><div class="doc-name">Predicted Outcomes and Progression</div><div class="doc-meta">Grade Prediction, University Pathways</div></div><div class="doc-arrow">→</div></a>
+
  </div>
  </div>
  </div>
@@ -1825,44 +1880,60 @@ footer p{
  <button class="programme-header" onclick="toggleProgramme('ibdp-cs')" aria-expanded="true">
  <div class="prog-icon" style="width:48px;height:48px;font-size:1.4rem">🌍</div>
  <div style="flex:1">
- <h3>IB DP Computer Science (2024+)</h3>
- <span class="syllabus">International Baccalaureate • Grades 11-12 • 15DocumentsDocuments</span>
+ <h3>IB DP Computer Science (SL/HL)</h3>
+ <span class="syllabus">IB Diploma • Year 1 & Year 2 • 19DocumentsDocuments</span>
  </div>
  <div class="programme-toggle">▼</div>
  </button>
  <div class="programme-body">
  <div class="sub-section">
- <div class="sub-header">📁 SLandHLCommon Topics</div>
+ <div class="sub-header">📁 Year 1 (SL/HL) — Term 1</div>
  <div class="doc-grid">
- <a class="doc-link" href="https://raw.githubusercontent.com/Skits2707/igcse-Alevel-IBDP-cs-ict-curriculum/main/IB_DP_Computer_Science/SL_HL_Common/Course_Overview.html"><div class="doc-icon html">HTML</div><div class="doc-info"><div class="doc-name">Course Overview</div><div class="doc-meta">SL/HL Common • Syllabus</div></div><div class="doc-arrow">→</div></a>
- <a class="doc-link" href="https://raw.githubusercontent.com/Skits2707/igcse-Alevel-IBDP-cs-ict-curriculum/main/IB_DP_Computer_Science/SL_HL_Common/Topic_1_System_Fundamentals.html"><div class="doc-icon html">HTML</div><div class="doc-info"><div class="doc-name">Topic 1：System Fundamentals</div><div class="doc-meta">Components、Roles、Evolution</div></div><div class="doc-arrow">→</div></a>
- <a class="doc-link" href="https://raw.githubusercontent.com/Skits2707/igcse-Alevel-IBDP-cs-ict-curriculum/main/IB_DP_Computer_Science/SL_HL_Common/Topic_2_Computer_Organisation.html"><div class="doc-icon html">HTML</div><div class="doc-info"><div class="doc-name">Topic 2：Computer Organization</div><div class="doc-meta">CPU、Memory、IO</div></div><div class="doc-arrow">→</div></a>
- <a class="doc-link" href="https://raw.githubusercontent.com/Skits2707/igcse-Alevel-IBDP-cs-ict-curriculum/main/IB_DP_Computer_Science/SL_HL_Common/Topic_3_Networks.html"><div class="doc-icon html">HTML</div><div class="doc-info"><div class="doc-name">Topic 3：Networks</div><div class="doc-meta">LAN/WAN、Protocols、Security</div></div><div class="doc-arrow">→</div></a>
- <a class="doc-link" href="https://raw.githubusercontent.com/Skits2707/igcse-Alevel-IBDP-cs-ict-curriculum/main/IB_DP_Computer_Science/SL_HL_Common/Topic_4_Computational_Thinking.html"><div class="doc-icon html">HTML</div><div class="doc-info"><div class="doc-name">Topic 4：Computational Thinking</div><div class="doc-meta">Thinking、Programming、OOP</div></div><div class="doc-arrow">→</div></a>
- <a class="doc-link" href="https://raw.githubusercontent.com/Skits2707/igcse-Alevel-IBDP-cs-ict-curriculum/main/IB_DP_Computer_Science/SL_HL_Common/Topic_5_Abstract_Data_Structures.html"><div class="doc-icon html">HTML</div><div class="doc-info"><div class="doc-name">Topic 5：Abstract Data Structures</div><div class="doc-meta">Stacks、Queues、Trees</div></div><div class="doc-arrow">→</div></a>
- <a class="doc-link" href="https://raw.githubusercontent.com/Skits2707/igcse-Alevel-IBDP-cs-ict-curriculum/main/IB_DP_Computer_Science/SL_HL_Common/Topic_6_Resource_Management.html"><div class="doc-icon html">HTML</div><div class="doc-info"><div class="doc-name">Topic 6：Resource Management</div><div class="doc-meta">OS、Memory Management、Scheduling</div></div><div class="doc-arrow">→</div></a>
- <a class="doc-link" href="https://raw.githubusercontent.com/Skits2707/igcse-Alevel-IBDP-cs-ict-curriculum/main/IB_DP_Computer_Science/SL_HL_Common/Topic_7_Control_Systems.html"><div class="doc-icon html">HTML</div><div class="doc-info"><div class="doc-name">Topic 7：Control Systems</div><div class="doc-meta">Sensors、Actuators、Automation</div></div><div class="doc-arrow">→</div></a>
- 
+ <a class="doc-link" href="https://raw.githubusercontent.com/Skits2707/igcse-Alevel-IBDP-cs-ict-curriculum/main/IB_DP_Computer_Science/Year_1_SL_HL/Semester_1/Course_Overview.html"><div class="doc-icon html">HTML</div><div class="doc-info"><div class="doc-name">Course Overview</div><div class="doc-meta">Y1 S1 • Syllabus</div></div><div class="doc-arrow">→</div></a>
+ <a class="doc-link" href="https://raw.githubusercontent.com/Skits2707/igcse-Alevel-IBDP-cs-ict-curriculum/main/IB_DP_Computer_Science/Year_1_SL_HL/Semester_1/Weeks_1-9_System_Fundamentals.html"><div class="doc-icon html">HTML</div><div class="doc-info"><div class="doc-name">Weeks 1-9: System Fundamentals</div><div class="doc-meta">Topic1：System Fundamentals</div></div><div class="doc-arrow">→</div></a>
+ <a class="doc-link" href="https://raw.githubusercontent.com/Skits2707/igcse-Alevel-IBDP-cs-ict-curriculum/main/IB_DP_Computer_Science/Year_1_SL_HL/Semester_1/Weeks_10-18_Computer_Organization.html"><div class="doc-icon html">HTML</div><div class="doc-info"><div class="doc-name">Weeks 10-18: Computer Organization</div><div class="doc-meta">Topic2：Computer Organization</div></div><div class="doc-arrow">→</div></a>
+
  </div>
  </div>
  <div class="sub-section">
- <div class="sub-header">📁 HL Only Topics</div>
+ <div class="sub-header">📁 Year 1 (SL/HL) — Term 2</div>
  <div class="doc-grid">
- <a class="doc-link" href="https://raw.githubusercontent.com/Skits2707/igcse-Alevel-IBDP-cs-ict-curriculum/main/IB_DP_Computer_Science/HL_Only/Topic_8_Programming_Paradigms.html"><div class="doc-icon html">HTML</div><div class="doc-info"><div class="doc-name">Topic 8：Programming Paradigms</div><div class="doc-meta">OOP、Functional、Logic Programming</div></div><div class="doc-arrow">→</div></a>
- <a class="doc-link" href="https://raw.githubusercontent.com/Skits2707/igcse-Alevel-IBDP-cs-ict-curriculum/main/IB_DP_Computer_Science/HL_Only/Topic_9_Algorithm_Evaluation.html"><div class="doc-icon html">HTML</div><div class="doc-info"><div class="doc-name">Topic 9：Algorithm Evaluation</div><div class="doc-meta">Big-O、Heuristics、Optimization</div></div><div class="doc-arrow">→</div></a>
- <a class="doc-link" href="https://raw.githubusercontent.com/Skits2707/igcse-Alevel-IBDP-cs-ict-curriculum/main/IB_DP_Computer_Science/HL_Only/Topic_10_Recursion.html"><div class="doc-icon html">HTML</div><div class="doc-info"><div class="doc-name">Topic 10：Recursion</div><div class="doc-meta">Recursive Algorithms、Backtracking</div></div><div class="doc-arrow">→</div></a>
- <a class="doc-link" href="https://raw.githubusercontent.com/Skits2707/igcse-Alevel-IBDP-cs-ict-curriculum/main/IB_DP_Computer_Science/HL_Only/Topic_11_AI_Machine_Learning.html"><div class="doc-icon html">HTML</div><div class="doc-info"><div class="doc-name">Topic 11：AI andMachine Learning</div><div class="doc-meta">Neural Networks、Training、Ethics</div></div><div class="doc-arrow">→</div></a>
- <a class="doc-link" href="https://raw.githubusercontent.com/Skits2707/igcse-Alevel-IBDP-cs-ict-curriculum/main/IB_DP_Computer_Science/HL_Only/Topic_12_Robotics.html"><div class="doc-icon html">HTML</div><div class="doc-info"><div class="doc-name">Topic 12：Robotics</div><div class="doc-meta">Sensors、Control、Applications</div></div><div class="doc-arrow">→</div></a>
- 
+ <a class="doc-link" href="https://raw.githubusercontent.com/Skits2707/igcse-Alevel-IBDP-cs-ict-curriculum/main/IB_DP_Computer_Science/Year_1_SL_HL/Semester_2/Course_Overview.html"><div class="doc-icon html">HTML</div><div class="doc-info"><div class="doc-name">Course Overview</div><div class="doc-meta">Y1 S2 • Syllabus</div></div><div class="doc-arrow">→</div></a>
+ <a class="doc-link" href="https://raw.githubusercontent.com/Skits2707/igcse-Alevel-IBDP-cs-ict-curriculum/main/IB_DP_Computer_Science/Year_1_SL_HL/Semester_2/Weeks_1-9_Networks.html"><div class="doc-icon html">HTML</div><div class="doc-info"><div class="doc-name">Weeks 1-9: Networks</div><div class="doc-meta">Topic3：Networks</div></div><div class="doc-arrow">→</div></a>
+ <a class="doc-link" href="https://raw.githubusercontent.com/Skits2707/igcse-Alevel-IBDP-cs-ict-curriculum/main/IB_DP_Computer_Science/Year_1_SL_HL/Semester_2/Weeks_10-18_Computational_Thinking.html"><div class="doc-icon html">HTML</div><div class="doc-info"><div class="doc-name">Weeks 10-18: Computational Thinking</div><div class="doc-meta">Topic4：Computational Thinking</div></div><div class="doc-arrow">→</div></a>
+
  </div>
  </div>
  <div class="sub-section">
- <div class="sub-header">📁 IAandExam Preparation</div>
+ <div class="sub-header">📁 Year 2 (SL/HL) — Term 1</div>
  <div class="doc-grid">
- <a class="doc-link" href="https://raw.githubusercontent.com/Skits2707/igcse-Alevel-IBDP-cs-ict-curriculum/main/IB_DP_Computer_Science/IA_Exam_Prep/IA_Handbook.html"><div class="doc-icon html">HTML</div><div class="doc-info"><div class="doc-name">IA Handbook</div><div class="doc-meta">Internal Assessment Guide</div></div><div class="doc-arrow">→</div></a>
- <a class="doc-link" href="https://raw.githubusercontent.com/Skits2707/igcse-Alevel-IBDP-cs-ict-curriculum/main/IB_DP_Computer_Science/IA_Exam_Prep/Case_Study_Guide.html"><div class="doc-icon html">HTML</div><div class="doc-info"><div class="doc-name">Case Study Guide</div><div class="doc-meta">Paper 3 Preparation</div></div><div class="doc-arrow">→</div></a>
- <a class="doc-link" href="https://raw.githubusercontent.com/Skits2707/igcse-Alevel-IBDP-cs-ict-curriculum/main/IB_DP_Computer_Science/IA_Exam_Prep/Mock_Exam_Series.html"><div class="doc-icon html">HTML</div><div class="doc-info"><div class="doc-name">Mock Exam Series</div><div class="doc-meta">Practice Exams andMark Schemes</div></div><div class="doc-arrow">→</div></a>
- 
+ <a class="doc-link" href="https://raw.githubusercontent.com/Skits2707/igcse-Alevel-IBDP-cs-ict-curriculum/main/IB_DP_Computer_Science/Year_2_SL_HL/Semester_1/Course_Overview.html"><div class="doc-icon html">HTML</div><div class="doc-info"><div class="doc-name">Course Overview</div><div class="doc-meta">Y2 S1 • Syllabus</div></div><div class="doc-arrow">→</div></a>
+ <a class="doc-link" href="https://raw.githubusercontent.com/Skits2707/igcse-Alevel-IBDP-cs-ict-curriculum/main/IB_DP_Computer_Science/Year_2_SL_HL/Semester_1/Weeks_1-9_HL_Abstract_Data_Structures.html"><div class="doc-icon html">HTML</div><div class="doc-info"><div class="doc-name">Weeks 1-9: HLAbstract Data Structures</div><div class="doc-meta">Topic5：HLExtended</div></div><div class="doc-arrow">→</div></a>
+ <a class="doc-link" href="https://raw.githubusercontent.com/Skits2707/igcse-Alevel-IBDP-cs-ict-curriculum/main/IB_DP_Computer_Science/Year_2_SL_HL/Semester_1/Weeks_10-18_HL_Resource_Management.html"><div class="doc-icon html">HTML</div><div class="doc-info"><div class="doc-name">Weeks 10-18: HLResource Management</div><div class="doc-meta">Topic5：HLExtended</div></div><div class="doc-arrow">→</div></a>
+ <a class="doc-link" href="https://raw.githubusercontent.com/Skits2707/igcse-Alevel-IBDP-cs-ict-curriculum/main/IB_DP_Computer_Science/Year_2_SL_HL/Semester_1/SL_Revision_IA_Development.html"><div class="doc-icon html">HTML</div><div class="doc-info"><div class="doc-name">SLReview andIADevelopment</div><div class="doc-meta">IAPlanning, Case Study</div></div><div class="doc-arrow">→</div></a>
+
+ </div>
+ </div>
+ <div class="sub-section">
+ <div class="sub-header">📁 Year 2 (SL/HL) — Term 2</div>
+ <div class="doc-grid">
+ <a class="doc-link" href="https://raw.githubusercontent.com/Skits2707/igcse-Alevel-IBDP-cs-ict-curriculum/main/IB_DP_Computer_Science/Year_2_SL_HL/Semester_2/Course_Overview.html"><div class="doc-icon html">HTML</div><div class="doc-info"><div class="doc-name">Course Overview</div><div class="doc-meta">Y2 S2 • Syllabus</div></div><div class="doc-arrow">→</div></a>
+ <a class="doc-link" href="https://raw.githubusercontent.com/Skits2707/igcse-Alevel-IBDP-cs-ict-curriculum/main/IB_DP_Computer_Science/Year_2_SL_HL/Semester_2/Weeks_1-9_HL_Control_Systems.html"><div class="doc-icon html">HTML</div><div class="doc-info"><div class="doc-name">Weeks 1-9: HLControl Systems</div><div class="doc-meta">Topic5：HLExtended</div></div><div class="doc-arrow">→</div></a>
+ <a class="doc-link" href="https://raw.githubusercontent.com/Skits2707/igcse-Alevel-IBDP-cs-ict-curriculum/main/IB_DP_Computer_Science/Year_2_SL_HL/Semester_2/Weeks_10-18_Revision_Exams.html"><div class="doc-icon html">HTML</div><div class="doc-info"><div class="doc-name">Weeks 10-18: Review and Exam</div><div class="doc-meta">Final Review, Mock Exam</div></div><div class="doc-arrow">→</div></a>
+ <a class="doc-link" href="https://raw.githubusercontent.com/Skits2707/igcse-Alevel-IBDP-cs-ict-curriculum/main/IB_DP_Computer_Science/Year_2_SL_HL/Semester_2/IA_Guide_and_Support.html"><div class="doc-icon html">HTML</div><div class="doc-info"><div class="doc-name">IAGuide andSupport</div><div class="doc-meta">CompleteIAHandbook and Examples</div></div><div class="doc-arrow">→</div></a>
+
+ </div>
+ </div>
+ <div class="sub-section">
+ <div class="sub-header">📁 SupportDocuments</div>
+ <div class="doc-grid">
+ <a class="doc-link" href="https://raw.githubusercontent.com/Skits2707/igcse-Alevel-IBDP-cs-ict-curriculum/main/IB_DP_Computer_Science/Supporting_Documents/Bilingual_Glossary_180_Terms.html"><div class="doc-icon html">HTML</div><div class="doc-info"><div class="doc-name">BilingualGlossary (180Terminology) </div><div class="doc-meta">English/Chinese/Pinyincomparison</div></div><div class="doc-arrow">→</div></a>
+ <a class="doc-link" href="https://raw.githubusercontent.com/Skits2707/igcse-Alevel-IBDP-cs-ict-curriculum/main/IB_DP_Computer_Science/Supporting_Documents/Case_Study_Preparation_Guide.html"><div class="doc-icon html">HTML</div><div class="doc-info"><div class="doc-name">Case Study Preparation Guide</div><div class="doc-meta">Paper 3Exam Preparation Strategy</div></div><div class="doc-arrow">→</div></a>
+ <a class="doc-link" href="https://raw.githubusercontent.com/Skits2707/igcse-Alevel-IBDP-cs-ict-curriculum/main/IB_DP_Computer_Science/Supporting_Documents/HL_Extension_Materials.html"><div class="doc-icon html">HTML</div><div class="doc-info"><div class="doc-name">HLExtended Materials</div><div class="doc-meta">AdvancedTopicand Practice</div></div><div class="doc-arrow">→</div></a>
+ <a class="doc-link" href="https://raw.githubusercontent.com/Skits2707/igcse-Alevel-IBDP-cs-ict-curriculum/main/IB_DP_Computer_Science/Supporting_Documents/IA_Handbook.html"><div class="doc-icon html">HTML</div><div class="doc-info"><div class="doc-name">IAHandbook</div><div class="doc-meta">CompleteIAGuide and Mark Schemes</div></div><div class="doc-arrow">→</div></a>
+ <a class="doc-link" href="https://raw.githubusercontent.com/Skits2707/igcse-Alevel-IBDP-cs-ict-curriculum/main/IB_DP_Computer_Science/Supporting_Documents/IGCSE_to_IB_DP_Bridge.html"><div class="doc-icon html">HTML</div><div class="doc-info"><div class="doc-name">IGCSEtoIB DPBridging</div><div class="doc-meta">Skills Gap Analysis and Transition</div></div><div class="doc-arrow">→</div></a>
+ <a class="doc-link" href="https://raw.githubusercontent.com/Skits2707/igcse-Alevel-IBDP-cs-ict-curriculum/main/IB_DP_Computer_Science/Supporting_Documents/TOK_Connections.html"><div class="doc-icon html">HTML</div><div class="doc-info"><div class="doc-name">TOKContact</div><div class="doc-meta">TOK and CSIntersection</div></div><div class="doc-arrow">→</div></a>
+ <a class="doc-link" href="https://raw.githubusercontent.com/Skits2707/igcse-Alevel-IBDP-cs-ict-curriculum/main/IB_DP_Computer_Science/Supporting_Documents/University_Pathways.html"><div class="doc-icon html">HTML</div><div class="doc-info"><div class="doc-name">University Pathways</div><div class="doc-meta">University Application and Major Guidance</div></div><div class="doc-arrow">→</div></a>
  </div>
  </div>
  </div>
@@ -1876,142 +1947,179 @@ footer p{
 <!-- Contact -->
 <section class="contact" id="contact">
  <div class="container">
- <h2>Contact Me</h2>
- <p>If you are interested in this curriculum system or would like to discuss cooperation, please feel free to contact me。</p>
- <div class="contact-grid">
- <div class="contact-item">
- <div class="contact-icon">📧</div>
- <h4>Email</h4>
- <a href="mailto:connor.scanlan@example.com">connor.scanlan@example.com</a>
- </div>
- <div class="contact-item">
- <div class="contact-icon">💼</div>
- <h4>LinkedIn</h4>
- <a href="https://linkedin.com/in/connorscanlan" target="_blank">linkedin.com/in/connorscanlan</a>
- </div>
- <div class="contact-item">
- <div class="contact-icon">🌐</div>
- <h4>GitHub</h4>
- <a href="https://github.com/Skits2707" target="_blank">github.com/Skits2707</a>
- </div>
- </div>
- <form class="contact-form" onsubmit="event.preventDefault();alert('Thank you for your message! I will reply as soon as possible。');">
+ <h2>LetMe's Talk</h2>
+ <p>I'm ready to discuss how this curriculum can transform your CS and ICTTeaching. Whether you're reviewing this portfolio or just want to connect，I look forward to hearing from you. </p>
+ <form class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
  <div class="form-group">
  <label for="name">Name</label>
- <input type="text" id="name" placeholder="Your Name" required>
+ <input type="text" id="name" name="name" placeholder="You'sName" required>
  </div>
  <div class="form-group">
- <label for="email">Email</label>
- <input type="email" id="email" placeholder="your@email.com" required>
+ <label for="email">DigitalEmail</label>
+ <input type="email" id="email" name="email" placeholder="your@email.com" required>
  </div>
  <div class="form-group">
- <label for="subject">Subject</label>
- <select id="subject">
- <option>Curriculum Consultation</option>
- <option>Cooperation Intent</option>
- <option>Technical Support</option>
- <option>Other</option>
+ <label for="school">School/Organization</label>
+ <input type="text" id="school" name="school" placeholder="You'sSchoolor organization">
+ </div>
+ <div class="form-group">
+ <label for="subject">Topic</label>
+ <select id="subject" name="subject" required>
+ <option value="">Select aTopic...</option>
+ <option value="curriculum">Curriculum Consultation</option>
+ <option value="job">Job Opportunities</option>
+ <option value="general">General Questions</option>
  </select>
  </div>
  <div class="form-group">
  <label for="message">Message</label>
- <textarea id="message" placeholder="Please enter your message..." required></textarea>
+ <textarea id="message" name="message" placeholder="How I Technology Can Help You？" required></textarea>
  </div>
- <button type="submit" class="form-submit">Send Message</button>
+ <button type="submit" class="form-submit">SendMessage</button>
  </form>
- <a href="#" class="contact-btn" onclick="openDownloadModal();return false;">Download Complete Curriculum Plan</a>
+ <div class="contact-grid">
+ <div class="contact-item">
+ <div class="contact-icon">📧</div>
+ <h4>DigitalEmail</h4>
+ <a href="mailto:Connor.scanlan1205@outlook.com">Connor.scanlan1205@outlook.com</a>
+ </div>
+ <div class="contact-item">
+ <div class="contact-icon">💬</div>
+ <h4>WeChat</h4>
+ <span>Skits2026</span>
+ </div>
+ <div class="contact-item">
+ <div class="contact-icon">📍</div>
+ <h4>Location</h4>
+ <span>Shenzhen, China</span>
+ </div>
+ </div>
+ <button class="contact-btn" onclick="openDownloadModal()">Download Plan</button>
  </div>
 </section>
 
 <!-- Footer -->
 <footer>
  <div class="footer-social">
- <a href="https://github.com/Skits2707" target="_blank" aria-label="GitHub">🐙</a>
- <a href="https://linkedin.com/in/connorscanlan" target="_blank" aria-label="LinkedIn">💼</a>
+ <a href="https://www.linkedin.com/in/connor-scanlan/" target="_blank" aria-label="LinkedIn" title="LinkedIn">💼</a>
+ <a href="mailto:Connor.scanlan1205@outlook.com" aria-label="Email" title="Email">✉️</a>
  </div>
  <div class="footer-links">
- <a href="#about">About</a>
- <a href="#pathway">Pathways</a>
- <a href="#programmes">Curriculum</a>
+ <a href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to Top</a>
+ <a href="#programmes">CurriculumPrograms</a>
  <a href="#library">Documents</a>
- <a href="#contact">Contact</a>
+ <a href="#contact">ContactMethod</a>
  </div>
- <div class="footer-closing">Prepared. Patient. Purposeful.</div>
- <div class="footer-tagline">K–12 Computer Science & ICT Curriculum</div>
- <p>© 2024 Connor Scanlan. All rights reserved。</p>
- </footer>
+ <p class="footer-closing">I'm ready to go all in. </p>
+ <p class="footer-tagline">Crafted for International Schools</p>
+ <p>Connor Scanlan — Computer Science Educator | K–12 CS & ICT Curriculum Portfolio</p>
+ <p style="margin-top:8px;font-size:0.8rem">AllDocumentscontainsBilingualScaffolding (English + ChineseLanguage + Pinyin) | Standards Alignment：Common Core, CIE, IB | © 2026</p>
+</footer>
 
 <!-- Download Modal -->
-<div class="modal-overlay" id="downloadModal">
- <div class="modal">
- <button class="modal-close" onclick="closeDownloadModal()">×</button>
- <h3>Download Curriculum Plan</h3>
- <p>Please select the curriculum plan you want to download：</p>
+<div class="modal-overlay" id="downloadModal" onclick="closeDownloadModal(event)">
+ <div class="modal" onclick="event.stopPropagation()">
+ <button class="modal-close" onclick="closeDownloadModal()" aria-label="Close modal">×</button>
+ <h3>DownloadCurriculumPlan</h3>
+ <p>Choose Your Preferred'sLanguage：</p>
  <div class="modal-options">
- <a href="https://raw.githubusercontent.com/Skits2707/igcse-Alevel-IBDP-cs-ict-curriculum/main/IGCSE_Computer_Science/Year_9_Semester_1/Course_Overview.html" class="modal-btn" target="_blank">IGCSE Computer Science (0478)</a>
- <a href="https://raw.githubusercontent.com/Skits2707/igcse-Alevel-IBDP-cs-ict-curriculum/main/ICT_Program/Grades_2-3/Course_Overview.html" class="modal-btn" target="_blank">ICT Curriculum (0417)</a>
- <a href="https://raw.githubusercontent.com/Skits2707/igcse-Alevel-IBDP-cs-ict-curriculum/main/A_Level_Computer_Science/AS_Level/Course_Overview.html" class="modal-btn" target="_blank">A-Level Computer Science (9618)</a>
- <a href="https://raw.githubusercontent.com/Skits2707/igcse-Alevel-IBDP-cs-ict-curriculum/main/IB_DP_Computer_Science/SL_HL_Common/Course_Overview.html" class="modal-btn" target="_blank">IB DP Computer Science</a>
+ <a href="#" class="modal-btn primary" onclick="alert('English Version Coming Soon');return false;">DownloadEnglishLanguageVersion</a>
+ <a href="#" class="modal-btn" onclick="alert('ChineseLanguageVersion Coming Soon');return false;">DownloadChineseLanguageVersion</a>
  </div>
  </div>
 </div>
 
 <script>
-// Scroll Progress
-window.addEventListener('scroll',()=>{
- const scrollTop=document.documentElement.scrollTop||document.body.scrollTop;
- const scrollHeight=document.documentElement.scrollHeight-document.documentElement.clientHeight;
- document.getElementById('scrollProgress').style.width=(scrollTop/scrollHeight*100)+'%';
-});
-
-// Mobile Menu
+// Mobile menu
 function toggleMenu(){
- document.getElementById('navLinks').classList.toggle('active');
+ const e=document.getElementById("navLinks");
+ e.classList.toggle("active");
 }
 
-// Programme Toggle
+// Close mobile menu on link click
+document.querySelectorAll(".nav-links a").forEach(e=>{
+ e.addEventListener("click",()=>{
+ const n=document.getElementById("navLinks");
+ n.classList.contains("active")&&n.classList.remove("active");
+ });
+});
+
+// Scroll progress bar
+window.addEventListener("scroll",()=>{
+ const e=document.documentElement.scrollTop||document.body.scrollTop;
+ const t=document.documentElement.scrollHeight-document.documentElement.clientHeight;
+ const n=t>0?e/t*100:0;
+ document.getElementById("scrollProgress").style.width=n+"%";
+});
+
+// Download modal
+function openDownloadModal(){
+ document.getElementById("downloadModal").classList.add("active");
+ document.body.style.overflow="hidden";
+}
+function closeDownloadModal(e){
+ if(e&&e.target!==e.currentTarget)return;
+ document.getElementById("downloadModal").classList.remove("active");
+ document.body.style.overflow="";
+}
+document.addEventListener("keydown",e=>{
+ if(e.key==="Escape")closeDownloadModal();
+});
+
+// Fade-in observer
+const observer=new IntersectionObserver(e=>{
+ e.forEach(e=>{
+ if(e.isIntersecting)e.target.classList.add("visible");
+ });
+},{threshold:.1});
+document.querySelectorAll(".fade-in").forEach(e=>observer.observe(e));
+
+// Programme toggle
 function toggleProgramme(id){
  const block=document.getElementById(id);
- block.classList.toggle('open');
- block.classList.toggle('collapsed');
- const btn=block.querySelector('.programme-header');
- btn.setAttribute('aria-expanded',block.classList.contains('open'));
+ const btn=block.querySelector(".programme-header");
+ block.classList.toggle("open");
+ block.classList.toggle("collapsed");
+ const isOpen=block.classList.contains("open");
+ btn&&btn.setAttribute("aria-expanded",isOpen);
 }
 
-// Smooth Scroll
-function scrollToSection(id){
- document.getElementById(id).scrollIntoView({behavior:'smooth'});
-}
-
-// Open Programme
 function openProgramme(id){
  const block=document.getElementById(id);
- block.classList.add('open');
- block.classList.remove('collapsed');
- block.querySelector('.programme-header').setAttribute('aria-expanded','true');
- block.scrollIntoView({behavior:'smooth',block:'start'});
+ const btn=block.querySelector(".programme-header");
+ block.classList.add("open");
+ block.classList.remove("collapsed");
+ btn&&btn.setAttribute("aria-expanded","true");
+ scrollToSection(id);
 }
 
-// Modal
-function openDownloadModal(){
- document.getElementById('downloadModal').classList.add('active');
+function scrollToSection(id){
+ const el=document.getElementById(id);
+ if(el)el.scrollIntoView({behavior:"smooth",block:"start"});
 }
-function closeDownloadModal(){
- document.getElementById('downloadModal').classList.remove('active');
-}
-document.getElementById('downloadModal').addEventListener('click',function(e){
- if(e.target===this) closeDownloadModal();
-});
 
-// Fade-in Animation
-const observer=new IntersectionObserver((entries)=>{
- entries.forEach(entry=>{
- if(entry.isIntersecting){
- entry.target.classList.add('visible');
+// Smooth scroll for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(e=>{
+ e.addEventListener("click",function(e){
+ const t=this.getAttribute("href");
+ if(t.length>1){
+ e.preventDefault();
+ const target=document.querySelector(t);
+ if(target)target.scrollIntoView({behavior:"smooth"});
  }
  });
-},{threshold:0.1});
-document.querySelectorAll('.fade-in').forEach(el=>observer.observe(el));
+});
+
+// Nav background on scroll
+window.addEventListener("scroll",()=>{
+ const nav=document.querySelector("nav");
+ if(window.scrollY>50){
+ nav.style.boxShadow="0 2px 20px rgba(26,42,62,0.08)";
+ }else{
+ nav.style.boxShadow="none";
+ }
+});
 </script>
+
 </body>
 </html>
